@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BR Lin - Personal Portfolio
 
-## Getting Started
+A modern, high-performance personal portfolio website built with **Next.js 15**, **Tailwind CSS**, **shadcn/ui**, and **Framer Motion**.
 
-First, run the development server:
+## 🚀 Data-Driven & Static
+This project is designed to be fully static for serverless deployment (Vercel, Cloudflare Pages, etc.).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🛠️ Tech Stack
+- **Framework**: [Next.js 15 (App Router)](https://nextjs.org/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
+- **Animations**: [Motion (Framer Motion)](https://motion.dev/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **State Management**: React Hooks & Context
+
+## 📂 Project Structure
+```
+src/
+├── app/                  # App Router pages and layout
+├── components/          # React components
+│   ├── layout/          # Global layout components (Navbar, Footer)
+│   ├── sections/        # Page sections (Hero, About, Projects, etc.)
+│   └── ui/              # Reusable UI components (shadcn)
+├── lib/                 # Utilities
+└── public/              # Static assets
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧞 Commands
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+All commands are run from the root of the project, from a terminal:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Action |
+| :--- | :--- |
+| `npm install` | Installs dependencies |
+| `npm run dev` | Starts local dev server at `localhost:3000` |
+| `npm run build` | Build your production site to `./out/` |
+| `npm run start` | Preview your build locally (if not using static export) |
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📝 License
+This project is for personal use.
