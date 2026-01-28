@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Archivo, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { GlobalFloatingActions } from "@/components/layout/global-floating-actions";
+import { SectionNavigation } from "@/components/layout/section-navigation";
+import { MenuAction } from "@/components/layout/menu-action";
 import { Logo } from "@/components/layout/logo";
 
 const geistSans = Geist({
@@ -50,7 +51,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Logo />
-          <GlobalFloatingActions />
+          <SectionNavigation />
+          <MenuAction />
           {children}
         </ThemeProvider>
       </body>

@@ -8,7 +8,7 @@ import * as motion from "motion/react-m"
 export function Hero() {
     return (
         <LazyMotion features={domAnimation}>
-            <section className="relative flex min-h-screen items-center justify-center overflow-hidden py-20 pb-32">
+            <section id="hero" className="relative flex min-h-screen items-center justify-center overflow-hidden py-20 pb-32">
                 {/* Abstract Background */}
                 <div className="absolute inset-0 -z-10 h-full w-full bg-background dark:bg-background">
                     <div className="absolute top-0 z-[-2] h-screen w-screen bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]" />
