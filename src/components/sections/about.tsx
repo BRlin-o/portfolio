@@ -23,7 +23,7 @@ export function About() {
 
     return (
         <LazyMotion features={domAnimation}>
-            <section id="about" className="container py-24 md:py-32">
+            <section id="about" className="container mx-auto px-4 md:px-6 py-24 md:py-32">
                 <m.div
                     initial="hidden"
                     whileInView="show"

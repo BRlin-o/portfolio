@@ -80,7 +80,7 @@ export function Projects() {
 
     return (
         <LazyMotion features={domAnimation}>
-            <section id="projects" className="container py-24 md:py-32 bg-slate-50 dark:bg-transparent">
+            <section id="projects" className="container mx-auto px-4 md:px-6 py-24 md:py-32">
                 <div className="flex flex-col gap-12">
                     <m.div
                         initial={{ opacity: 0, y: 20 }}

@@ -8,12 +8,29 @@ import { Contact } from "@/components/sections/contact";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <Awards />
-      <Contact />
+      <div className="w-full">
+        <Hero />
+      </div>
+
+      <div className="w-full">
+        <About />
+      </div>
+
+      <div className="w-full">
+        <Experience />
+      </div>
+
+      <div className="w-full bg-slate-50 dark:bg-transparent">
+        <Projects />
+      </div>
+
+      <div className="w-full">
+        <Awards />
+      </div>
+
+      <div className="w-full">
+        <Contact />
+      </div>
     </main>
   );
 }

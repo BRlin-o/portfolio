@@ -8,7 +8,7 @@ import { Mail, Github, Linkedin, ArrowUp } from "lucide-react"
 export function Contact() {
     return (
         <LazyMotion features={domAnimation}>
-            <section id="contact" className="container py-24 md:py-32">
+            <section id="contact" className="container mx-auto px-4 md:px-6 py-24 md:py-32">
                 <m.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}

@@ -67,7 +67,7 @@ export function Awards() {
 
     return (
         <LazyMotion features={domAnimation}>
-            <section id="awards" className="container py-24 md:py-32">
+            <section id="awards" className="container mx-auto px-4 md:px-6 py-24 md:py-32">
                 <m.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
