@@ -1,5 +1,7 @@
 "use client"
 
+import * as React from "react"
+
 import { Badge } from "@/components/ui/badge"
 import { GlowingEffect } from "@/components/ui/glowing-effect"
 import { useResumeLayoutStore } from "@/store/resume-layout"
@@ -27,7 +29,7 @@ function GlowingSection({
                 inactiveZone={0.01}
                 borderWidth={2.5}
             />
-            <div className="relative rounded-xl bg-white dark:bg-slate-900 backdrop-blur-sm p-4 print:p-3 print:bg-white flex-1">
+            <div className="relative rounded-xl bg-white dark:bg-slate-900 backdrop-blur-sm p-3.5 print:p-2 print:bg-white flex-1">
                 {children}
             </div>
         </div>
@@ -55,7 +57,23 @@ function SectionTitle({
 }
 
 export default function ResumePage() {
-    const { viewMode, singleScale, dualScale } = useResumeLayoutStore()
+    const { viewMode, singleScale, dualScale, initializeLayout } = useResumeLayoutStore()
+    const [isMounted, setIsMounted] = React.useState(false)
+
+    React.useEffect(() => {
+        setIsMounted(true)
+        // Initialize layout on mount
+        initializeLayout(window.innerWidth)
+
+        // Dynamic switching/scaling on resize
+        const handleResize = () => {
+            initializeLayout(window.innerWidth)
+        }
+
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [initializeLayout])
+
     const scale = viewMode === 'single' ? singleScale : dualScale
 
     const container = {
@@ -95,9 +113,9 @@ export default function ResumePage() {
                         >
                             {/* Header */}
                             <m.header variants={item} className="pb-3 border-b border-slate-100 dark:border-slate-800">
-                                <div className="flex items-start gap-4">
+                                <div className="flex flex-col md:flex-row print:flex-row md:items-start print:items-start gap-4">
                                     {/* Left: Name & Title */}
-                                    <div className="shrink-0">
+                                    <div className="shrink-0 mb-4 md:mb-0 print:mb-0">
                                         <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-50">
                                             CHENG-HAN LIN
                                         </h1>
@@ -109,7 +127,7 @@ export default function ResumePage() {
                                         </p>
                                     </div>
                                     {/* Right: Contact Info Grid */}
-                                    <div className="flex-1 flex flex-wrap items-start justify-end gap-x-3 gap-y-1.5 text-xs text-slate-500 dark:text-slate-400">
+                                    <div className="w-full md:w-auto print:w-auto md:flex-1 flex flex-col sm:flex-row sm:flex-wrap print:flex-row print:flex-wrap items-start justify-start md:justify-end print:justify-end gap-x-3 gap-y-1.5 text-xs text-slate-500 dark:text-slate-400">
                                         <a href="mailto:brend.main@gmail.com" className="flex items-center gap-1 hover:text-blue-600 transition-colors px-1.5 py-0.5 rounded bg-slate-50 dark:bg-slate-800/50">
                                             <Mail className="h-3 w-3" /> brend.main@gmail.com
                                         </a>
@@ -155,14 +173,15 @@ export default function ResumePage() {
                                             <Badge variant="outline" className="text-[10px] px-2 py-0.5 shrink-0">Sep 2023 – Dec 2024</Badge>
                                         </div>
                                         <div className="flex flex-wrap gap-1 mb-2">
-                                            {["Tableau", "Alteryx", "BI", "ETL", "SAP"].map(t => (
+                                            {["Tableau", "Alteryx", "BI", "ETL", "SAP", "Python"].map(t => (
                                                 <Badge key={t} variant="secondary" className="text-[9px] px-1.5 py-0">{t}</Badge>
                                             ))}
                                         </div>
                                         <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-0.5 list-disc list-inside">
-                                            <li>Led enterprise BI implementation for <strong>50+ users</strong> across Sales and Finance departments</li>
-                                            <li>Developed <strong>10+ interactive dashboards</strong>, reducing report preparation time by <strong>40%</strong></li>
-                                            <li>Created executive KPI dashboards for C-level, improving data-driven decision-making by <strong>30%</strong></li>
+                                            <li>Collaborated on enterprise BI implementation supporting <strong>digital transformation</strong> for <strong>50+ users</strong></li>
+                                            <li>Built <strong>10+ interactive reports</strong> (sales analytics, financial reporting, executive KPIs), cutting report time by <strong>40%</strong></li>
+                                            <li>Created cross-functional dashboards from Sales to C-level, <strong>breaking data silos</strong> and boosting efficiency by <strong>30%</strong></li>
+                                            <li>Maintained ETL pipelines with <strong>Alteryx</strong>, processing <strong>SAP</strong> data for real-time business intelligence</li>
                                             <li>Attended <strong>20+ tech conferences</strong> (AWS Summit, Google DevFest, COMPUTEX) for executive briefings</li>
                                         </ul>
                                     </GlowingSection>
@@ -177,14 +196,15 @@ export default function ResumePage() {
                                             <Badge variant="outline" className="text-[10px] px-2 py-0.5 shrink-0">Jan 2023 – Sep 2023</Badge>
                                         </div>
                                         <div className="flex flex-wrap gap-1 mb-2">
-                                            {["Python", "C#", "React", "Docker", "CI/CD"].map(t => (
+                                            {["Python", "C#", "React JS", "SQL", "Docker", "CI/CD"].map(t => (
                                                 <Badge key={t} variant="secondary" className="text-[9px] px-1.5 py-0">{t}</Badge>
                                             ))}
                                         </div>
                                         <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-0.5 list-disc list-inside">
-                                            <li>Delivered in-house solutions saving <strong>500,000+ TWD</strong> in development costs</li>
-                                            <li>Built attendance platform for <strong>500+ employees</strong>, reducing HR report time from 60min to instant</li>
-                                            <li>Implemented containerized microservices with Docker & CI/CD, <strong>75% faster troubleshooting</strong></li>
+                                            <li>Replaced external consultants with in-house solutions, saving <strong>500,000+ NTD</strong> in development costs</li>
+                                            <li>Built attendance analytics for <strong>500+ employees</strong>, cutting HR report time from 60min to instant (<strong>6hr/week saved</strong>)</li>
+                                            <li>Developed inventory sync system for <strong>30+ SKUs</strong> across <strong>20 warehouse staff</strong>, reducing workload by <strong>25%</strong></li>
+                                            <li>Containerized microservices with Docker & CI/CD, improving stability <strong>40%</strong> and troubleshooting <strong>75% faster</strong></li>
                                         </ul>
                                     </GlowingSection>
                                 </div>
@@ -200,7 +220,7 @@ export default function ResumePage() {
                                                 <p className="font-semibold text-sm text-slate-900 dark:text-slate-100">MS, Computer Science & Information Engineering</p>
                                                 <p className="text-xs text-slate-500">National Taichung University of Science and Technology</p>
                                                 <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
-                                                    <span className="font-medium">Thesis:</span> Optimized 2D Histogram-Based Reversible Data Hiding for JPEG
+                                                    <span className="font-medium">Thesis:</span> Optimized Two-Dimensional Histogram-Based Reversible Data Hiding for JPEG
                                                 </p>
                                                 <div className="mt-1 flex flex-wrap gap-1">
                                                     <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[9px] px-1.5 py-0">Image Processing</Badge>
@@ -241,14 +261,15 @@ export default function ResumePage() {
                                         </div>
                                         <p className="text-xs text-slate-500 mb-1.5">AIWave: Taiwan Generative AI Applications Hackathon 2024</p>
                                         <div className="flex flex-wrap gap-1 mb-1.5">
-                                            {["LangChain", "RAG", "AWS", "OpenSearch"].map(t => (
+                                            {["LangChain", "RAG", "Agent", "AWS", "OpenSearch", "ETL"].map(t => (
                                                 <Badge key={t} variant="outline" className="text-[8px] px-1 py-0">{t}</Badge>
                                             ))}
                                         </div>
                                         <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-0.5 list-disc list-inside">
-                                            <li>Multi-agent chatbot for <strong>12 scooter models</strong></li>
-                                            <li>RAG over <strong>800+ manual pages</strong></li>
-                                            <li>30-hour hackathon delivery</li>
+                                            <li><strong>Multi-Agent ReAct</strong> architecture for <strong>12 scooter models</strong></li>
+                                            <li>RAG system over <strong>800+ pages</strong> with vector search</li>
+                                            <li>AWS deployment: <strong>S3 + Bedrock + OpenSearch</strong></li>
+                                            <li>Full solution delivered in <strong>30-hour</strong> hackathon</li>
                                         </ul>
                                     </GlowingSection>
 
@@ -260,14 +281,15 @@ export default function ResumePage() {
                                         </div>
                                         <p className="text-xs text-slate-500 mb-1.5">ETmall TV Shopping</p>
                                         <div className="flex flex-wrap gap-1 mb-1.5">
-                                            {["TEN-Agent", "Dify.ai", "Bedrock", "Claude", "AWS"].map(t => (
+                                            {["TEN-Agent", "Dify.ai", "Agent", "Bedrock", "AWS"].map(t => (
                                                 <Badge key={t} variant="outline" className="text-[8px] px-1 py-0">{t}</Badge>
                                             ))}
                                         </div>
                                         <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-0.5 list-disc list-inside">
-                                            <li>3-tier AI system (Coach + Sales + Evaluation)</li>
-                                            <li><strong>100+ customer attributes</strong> integration</li>
-                                            <li>Led <strong>5-member team</strong> for rapid deployment</li>
+                                            <li><strong>3-tier AI</strong>: Coach → Sales → Evaluation Agent</li>
+                                            <li><strong>100+ customer attributes</strong> for real-time personalization</li>
+                                            <li>AWS Bedrock + Transcribe + Polly <strong>voice AI</strong> stack</li>
+                                            <li>Led <strong>5-member team</strong> with full stakeholder approval</li>
                                         </ul>
                                     </GlowingSection>
                                 </div>
@@ -290,13 +312,15 @@ export default function ResumePage() {
                                     <GlowingSection>
                                         <p className="font-semibold text-sm text-slate-900 dark:text-slate-100">BETO Digital Hub</p>
                                         <div className="flex flex-wrap gap-1 my-1">
-                                            {["Tableau", "Alteryx", "SAP", "Next.js"].map(t => (
+                                            {["Next.js", "SAP", "Zustand", "OnlyOffice"].map(t => (
                                                 <Badge key={t} variant="outline" className="text-[8px] px-1 py-0">{t}</Badge>
                                             ))}
                                         </div>
-                                        <p className="text-xs text-slate-600 dark:text-slate-400">
-                                            Enterprise BI platform serving 50+ users with real-time business intelligence.
-                                        </p>
+                                        <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-0.5 list-disc list-inside">
+                                            <li><strong>SAP/BI data</strong> integration, eliminating <strong>data silos</strong></li>
+                                            <li><strong>Multi-dimension</strong> filtering + side-by-side <strong>comparison</strong></li>
+                                            <li>Knowledge center with <strong>OnlyOffice</strong> preview</li>
+                                        </ul>
                                     </GlowingSection>
                                     <GlowingSection>
                                         <p className="font-semibold text-sm text-slate-900 dark:text-slate-100">Splitpush E-commerce</p>
@@ -385,7 +409,7 @@ export default function ResumePage() {
                                             <div className="flex items-start gap-2">
                                                 <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">Google</Badge>
                                                 <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">Google Digital Talent Exploration Program</p>
+                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">Google Cloud Digital Talent Exploration Program</p>
                                                     <p className="text-[9px] text-slate-500">2024</p>
                                                 </div>
                                             </div>
