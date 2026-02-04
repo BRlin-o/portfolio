@@ -118,9 +118,9 @@ export const metadata: Metadata = {
   },
 
   // Verification (add your verification codes here)
-  // verification: {
-  //   google: "your-google-verification-code",
-  // },
+  verification: {
+    google: "VXc-kXyja_yx5VKcf1wcehAp2hsDW4GZjx6rk9jQAG8",
+  },
 
   // Category
   category: "technology",
