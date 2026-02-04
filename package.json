@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:cf": "IS_EXPORT=true next build",
     "deploy": "IS_EXPORT=true npm run build && wrangler deploy",
     "start": "next start",
     "lint": "eslint"
