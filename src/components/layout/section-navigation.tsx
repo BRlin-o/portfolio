@@ -17,27 +17,48 @@ export function SectionNavigation() {
     const [activeSection, setActiveSection] = React.useState("hero")
 
     React.useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setActiveSection(entry.target.id)
+        // Use scroll-based detection for more reliable section tracking
+        const handleScroll = () => {
+            const viewportCenter = window.innerHeight / 2
+
+            let closestSection = sections[0].id
+            let closestDistance = Infinity
+
+            sections.forEach((section) => {
+                const element = document.getElementById(section.id)
+                if (element) {
+                    const rect = element.getBoundingClientRect()
+                    // Calculate distance from section's center to viewport center
+                    const sectionCenter = rect.top + rect.height / 2
+                    const distance = Math.abs(sectionCenter - viewportCenter)
+
+                    if (distance < closestDistance) {
+                        closestDistance = distance
+                        closestSection = section.id
                     }
+                }
+            })
+
+            setActiveSection(closestSection)
+        }
+
+        // Initial check
+        handleScroll()
+
+        // Throttled scroll handler for performance
+        let ticking = false
+        const onScroll = () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    handleScroll()
+                    ticking = false
                 })
-            },
-            {
-                // Trigger when 50% of the section is visible or when it crosses the middle of the screen
-                rootMargin: "-20% 0% -35% 0%",
-                threshold: 0.1
+                ticking = true
             }
-        )
+        }
 
-        sections.forEach((section) => {
-            const element = document.getElementById(section.id)
-            if (element) observer.observe(element)
-        })
-
-        return () => observer.disconnect()
+        window.addEventListener("scroll", onScroll, { passive: true })
+        return () => window.removeEventListener("scroll", onScroll)
     }, [])
 
     const scrollToSection = (id: string) => {

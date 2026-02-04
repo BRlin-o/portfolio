@@ -24,7 +24,7 @@ export function Projects() {
             category: "Featured",
             type: "Hackathon / Featured",
             description: "AI-driven customer service solution for Gogoro, utilizing RAG to handle inquiries across 12 scooter models and 800+ manual pages. First Prize Winner.",
-            tech: ["Python", "LangChain", "RAG", "AWS", "Streamlit"],
+            tech: ["LangChain", "RAG", "Agent", "AWS", "OpenSearch", "Docker", "CI/CD"],
             link: "/documents/雲湧智生 生成式AI黑客松 Gogoro.pdf",
             linkType: "pdf",
             tags: ["Winner", "GenAI"]
@@ -33,8 +33,8 @@ export function Projects() {
             title: "BETO Digital Hub",
             category: "Work",
             type: "Work Project",
-            description: "Enterprise digital transformation project establishing a BI platform and data analysis system for sales/finance insights.",
-            tech: ["Tableau", "Alteryx", "SAP", "ETL"],
+            description: "Enterprise digital transformation project integrating SAP/BI data with multi-dimension filtering and side-by-side comparison features.",
+            tech: ["Next.js", "SAP", "Zustand", "OnlyOffice"],
             link: "/documents/BETO Digital Hub 初步成果會議.pdf",
             linkType: "pdf",
             tags: ["BI", "Data Eng"]
@@ -43,11 +43,31 @@ export function Projects() {
             title: "Splitpush inc. Ecommerce",
             category: "Work",
             type: "Work / Team Project",
-            description: "Delivered full ecommerce platform with catalog, membership, cart, and loyalty systems. Led backend team of 4.",
-            tech: ["PHP", "MySQL", "Docker", "Aliyun", "DevOps"],
+            description: "Delivered full ecommerce platform with catalog, membership, cart, and loyalty systems. Led backend team of 4 with 60% faster deployment.",
+            tech: ["PHP", "MySQL", "Docker", "Aliyun", "Alipay"],
             link: "#",
             linkType: "none",
             tags: ["Team Lead", "Backend"]
+        },
+        {
+            title: "FanBar - Image Translator",
+            category: "Side Project",
+            type: "Side Project",
+            description: "AI-powered manga/image translation platform with complete CTD → OCR → LLM → LAMA → Rendering pipeline for automated translation workflow.",
+            tech: ["React", "Python", "Flask", "PyTorch", "MangaOCR", "LAMA"],
+            link: "#",
+            linkType: "none",
+            tags: ["AI", "Image Processing"]
+        },
+        {
+            title: "TripFan (趣翻) - AI Travel Assistant",
+            category: "Side Project",
+            type: "Side Project",
+            description: "Smart travel companion app with AI product scanner and menu translator for Japan, Korea, and US travel. Multi-platform support via Capacitor.",
+            tech: ["Next.js", "Gemini", "Capacitor", "Zustand", "HeroUI"],
+            link: "https://tripfan.brlin.org/",
+            linkType: "external",
+            tags: ["AI", "Mobile"]
         },
         {
             title: "JPEG Codec",
@@ -55,7 +75,7 @@ export function Projects() {
             type: "Side Project",
             description: "Built a complete image compression system from scratch. Implemented encoder/decoder with modular architecture for research.",
             tech: ["Python", "NumPy", "OpenCV", "OOP"],
-            link: "#", // Add GitHub link if available later
+            link: "#",
             linkType: "github",
             tags: ["Research", "Image Processing"]
         }
@@ -143,9 +163,16 @@ export function Projects() {
                                                                 <a href={project.link} target="_blank">View Presentation</a>
                                                             </Button>
                                                         )}
+                                                        {project.linkType === "external" && (
+                                                            <Button variant="ghost" className="w-full" asChild>
+                                                                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                                                    <ExternalLink className="mr-2 h-4 w-4" />View Live
+                                                                </a>
+                                                            </Button>
+                                                        )}
                                                         {project.linkType === "github" && (
                                                             <Button variant="ghost" className="w-full" disabled>
-                                                                <Github className="mr-2 h-4 w-4" /> Code not public
+                                                                <Github className="mr-2 h-4 w-4" />Code not public
                                                             </Button>
                                                         )}
                                                     </CardFooter>

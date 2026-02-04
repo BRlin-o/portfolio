@@ -56,6 +56,11 @@ export function About() {
                                         </div>
                                         <p className="text-sm text-muted-foreground">National Taichung University of Science and Technology</p>
                                         <p className="mt-2 text-sm">Thesis: Optimized Two-Dimensional Histogram-Based Reversible Data Hiding Technique for JPEG</p>
+                                        <div className="mt-2 flex flex-wrap gap-1">
+                                            {["Security", "Image Processing", "Reversible Data Hiding", "AI/ML", "GenAI"].map((field) => (
+                                                <Badge key={field} variant="outline" className="text-xs">{field}</Badge>
+                                            ))}
+                                        </div>
                                     </div>
                                     <div>
                                         <div className="flex justify-between font-semibold">

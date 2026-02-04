@@ -17,7 +17,7 @@ export function Experience() {
                 "Optimized ETL pipelines for SAP data, improving cross-team efficiency by 30%.",
                 "Conducted market research on GenAI & BI trends from 20+ tech conferences (AWS Summit, etc.)."
             ],
-            skills: ["Tableau", "Alteryx", "ETL", "BI", "Data Analysis"]
+            skills: ["Tableau", "Alteryx", "SAP", "ETL", "BI", "Data Analysis"]
         },
         {
             company: "BETO ENG. & MKTG., CO., LTD.",

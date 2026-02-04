@@ -91,7 +91,7 @@ export default function ResumePage() {
 
     return (
         <LazyMotion features={domAnimation}>
-            <div className="resume-container py-4 px-3 md:py-6 bg-slate-50/50 dark:bg-slate-950 min-h-screen overflow-x-auto">
+            <div className="resume-container py-4 px-3 md:py-6 bg-slate-50/50 dark:bg-slate-950 flex-1">
                 {/* A4 Pages Container */}
                 <div
                     className="resume-pages flex gap-4 print:block transition-all duration-300 justify-center"
@@ -154,7 +154,7 @@ export default function ResumePage() {
                                         <strong className="text-slate-900 dark:text-slate-100">MS in Computer Science</strong> with research in Information Security and Image Processing.
                                         Specializing in <strong className="text-blue-600 dark:text-blue-400">Generative AI applications</strong> and <strong className="text-blue-600 dark:text-blue-400">Cloud solution architecture</strong>.
                                         Successfully delivered enterprise-grade, scalable AI solutions leveraging Multi-Agent Systems, RAG frameworks, and AWS/GCP cloud services.
-                                        Proven track record in leading technical teams and driving digital transformation with <strong className="text-blue-600 dark:text-blue-400">multiple 1st place hackathon wins</strong>.
+                                        Holding <strong className="text-blue-600 dark:text-blue-400">international certifications from NVIDIA, AWS, and Google Cloud</strong>, with notable results in multiple hackathons and national competitions. Proven track record in leading technical teams and driving digital transformation.
                                     </p>
                                 </GlowingSection>
                             </m.section>
@@ -261,7 +261,7 @@ export default function ResumePage() {
                                         </div>
                                         <p className="text-xs text-slate-500 mb-1.5">AIWave: Taiwan Generative AI Applications Hackathon 2024</p>
                                         <div className="flex flex-wrap gap-1 mb-1.5">
-                                            {["LangChain", "RAG", "Agent", "AWS", "OpenSearch", "ETL"].map(t => (
+                                            {["LangChain", "RAG", "Agent", "AWS", "OpenSearch", "ETL", "Docker", "CI/CD"].map(t => (
                                                 <Badge key={t} variant="outline" className="text-[8px] px-1 py-0">{t}</Badge>
                                             ))}
                                         </div>
@@ -305,9 +305,9 @@ export default function ResumePage() {
                             variants={container}
                             className="p-5 md:p-6 print:p-[8mm] space-y-6 print:space-y-2"
                         >
-                            {/* Work Projects */}
+                            {/* Projects */}
                             <m.section variants={item}>
-                                <SectionTitle icon={Briefcase}>Work Projects</SectionTitle>
+                                <SectionTitle icon={Code2}>Projects</SectionTitle>
                                 <div className="grid grid-cols-2 gap-2">
                                     <GlowingSection>
                                         <p className="font-semibold text-sm text-slate-900 dark:text-slate-100">BETO Digital Hub</p>
@@ -319,19 +319,43 @@ export default function ResumePage() {
                                         <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-0.5 list-disc list-inside">
                                             <li><strong>SAP/BI data</strong> integration, eliminating <strong>data silos</strong></li>
                                             <li><strong>Multi-dimension</strong> filtering + side-by-side <strong>comparison</strong></li>
-                                            <li>Knowledge center with <strong>OnlyOffice</strong> preview</li>
                                         </ul>
                                     </GlowingSection>
                                     <GlowingSection>
                                         <p className="font-semibold text-sm text-slate-900 dark:text-slate-100">Splitpush E-commerce</p>
                                         <div className="flex flex-wrap gap-1 my-1">
-                                            {["PHP", "Docker", "Alipay", "Aliyun ECS"].map(t => (
+                                            {["PHP", "Docker", "Alipay", "Aliyun"].map(t => (
                                                 <Badge key={t} variant="outline" className="text-[8px] px-1 py-0">{t}</Badge>
                                             ))}
                                         </div>
-                                        <p className="text-xs text-slate-600 dark:text-slate-400">
-                                            Led 4-member team delivering e-commerce with <strong>60% faster deployment</strong>.
-                                        </p>
+                                        <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-0.5 list-disc list-inside">
+                                            <li>Led <strong>4-member team</strong> delivering full e-commerce platform</li>
+                                            <li><strong>60% faster</strong> deployment with Docker CI/CD</li>
+                                        </ul>
+                                    </GlowingSection>
+                                    <GlowingSection>
+                                        <p className="font-semibold text-sm text-slate-900 dark:text-slate-100">FanBar - Image Translator</p>
+                                        <div className="flex flex-wrap gap-1 my-1">
+                                            {["React", "Python", "PyTorch", "LLM"].map(t => (
+                                                <Badge key={t} variant="outline" className="text-[8px] px-1 py-0">{t}</Badge>
+                                            ))}
+                                        </div>
+                                        <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-0.5 list-disc list-inside">
+                                            <li><strong>AI-powered</strong> manga/image translation platform</li>
+                                            <li><strong>CTD + OCR + LLM</strong> pipeline with LAMA inpainting</li>
+                                        </ul>
+                                    </GlowingSection>
+                                    <GlowingSection>
+                                        <p className="font-semibold text-sm text-slate-900 dark:text-slate-100">TripFan - AI Travel Assistant</p>
+                                        <div className="flex flex-wrap gap-1 my-1">
+                                            {["Next.js", "Gemini", "Capacitor", "Zustand"].map(t => (
+                                                <Badge key={t} variant="outline" className="text-[8px] px-1 py-0">{t}</Badge>
+                                            ))}
+                                        </div>
+                                        <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-0.5 list-disc list-inside">
+                                            <li><strong>AI product scanner</strong> + menu translator for travelers</li>
+                                            <li><strong>Multi-platform</strong> (Web/iOS) with location-based themes</li>
+                                        </ul>
                                     </GlowingSection>
                                 </div>
                             </m.section>
@@ -375,6 +399,13 @@ export default function ResumePage() {
                                                     <p className="text-[9px] text-slate-500">Information System and Web Application, 2022</p>
                                                 </div>
                                             </div>
+                                            <div className="flex items-start gap-2">
+                                                <Badge className="bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">Merit</Badge>
+                                                <div>
+                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">Taichung City Honors Student Award</p>
+                                                    <p className="text-[9px] text-slate-500">Outstanding Academic Performance, 2023</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </GlowingSection>
 
@@ -385,6 +416,20 @@ export default function ResumePage() {
                                             <span className="font-medium text-xs text-slate-700 dark:text-slate-300">Certifications</span>
                                         </div>
                                         <div className="space-y-1.5">
+                                            <div className="flex items-start gap-2">
+                                                <Badge className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">NVIDIA</Badge>
+                                                <div>
+                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">Accelerated Data Science - Professional</p>
+                                                    <p className="text-[9px] text-slate-500">2025</p>
+                                                </div>
+                                            </div>
+                                            <div className="flex items-start gap-2">
+                                                <Badge className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">NVIDIA</Badge>
+                                                <div>
+                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">Generative AI Agents Contest</p>
+                                                    <p className="text-[9px] text-slate-500">2024 • with LangChain</p>
+                                                </div>
+                                            </div>
                                             <div className="flex items-start gap-2">
                                                 <Badge className="bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">AWS</Badge>
                                                 <div>
@@ -411,13 +456,6 @@ export default function ResumePage() {
                                                 <div>
                                                     <p className="text-xs font-medium text-slate-800 dark:text-slate-200">Google Cloud Digital Talent Exploration Program</p>
                                                     <p className="text-[9px] text-slate-500">2024</p>
-                                                </div>
-                                            </div>
-                                            <div className="flex items-start gap-2">
-                                                <Badge className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">NVIDIA</Badge>
-                                                <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">Generative AI Agents Contest</p>
-                                                    <p className="text-[9px] text-slate-500">2024 • with LangChain</p>
                                                 </div>
                                             </div>
                                         </div>
