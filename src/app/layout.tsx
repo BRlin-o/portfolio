@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Archivo, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { siteConfig } from "@/lib/constants";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,10 +26,9 @@ const spaceGrotesk = Space_Grotesk({
   weight: ["400", "500", "600"],
 });
 
-const siteUrl = "https://brlin.org";
-const siteName = "Cheng-Han Lin | Cloud Engineer & AI Solution Developer";
-const siteDescription =
-  "Portfolio of Cheng-Han Lin (BR Lin) - Cloud Engineer specializing in Generative AI, Multi-Agent Systems, RAG Frameworks, and Scalable Cloud Architectures on AWS & GCP.";
+const siteUrl = siteConfig.url;
+const siteName = siteConfig.name;
+const siteDescription = siteConfig.description;
 
 export const viewport: Viewport = {
   themeColor: [

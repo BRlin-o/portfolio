@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
+import { siteConfig } from "@/lib/constants";
 
 export default function robots(): MetadataRoute.Robots {
-    const baseUrl = "https://brlin.org";
+    const baseUrl = siteConfig.url;
 
     return {
         rules: [
