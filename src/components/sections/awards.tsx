@@ -18,7 +18,7 @@ export function Awards() {
             category: "AI & Innovation",
             organizer: "DIGITIMES • National Development Council • AWS",
             year: "2024",
-            image: "/awards/AIWave2024-gogoro-1st.jpg",
+            image: "/awards/AIWave2024-gogoro-1st.webp",
             desc: "Smart Mobility – Gogoro Category. Built an AI assistant for Gogoro e-scooters using Claude 3 on Amazon Bedrock. Unanimously awarded by all judges."
         },
         {
@@ -27,7 +27,7 @@ export function Awards() {
             category: "Cloud Computing",
             organizer: "Ministry of Labor",
             year: "2025",
-            image: "/awards/55中區賽-1st.JPG",
+            image: "/awards/55中區賽-1st.webp",
             desc: "Regional competition showcasing advanced cloud architecture and DevOps skills."
         },
         {
@@ -36,7 +36,7 @@ export function Awards() {
             category: "Web Development",
             organizer: "Ministry of Education",
             year: "2022",
-            image: "/awards/ITSA2022全國網頁組-1st.jpg",
+            image: "/awards/ITSA2022全國網頁組-1st.webp",
             desc: "Information System & Web Applications Division. National-level programming competition focused on web technologies."
         },
         {
@@ -45,7 +45,7 @@ export function Awards() {
             category: "Cloud Computing",
             organizer: "Ministry of Labor",
             year: "2025",
-            image: "/awards/55全國賽-4th.jpg",
+            image: "/awards/55全國賽-4th.webp",
             desc: "National finals representing excellence in cloud computing and infrastructure management."
         },
         {
@@ -54,7 +54,7 @@ export function Awards() {
             category: "Academic Excellence",
             organizer: "Taichung City Government",
             year: "2023",
-            image: "/awards/台中市模範生.jpg",
+            image: "/awards/台中市模範生.webp",
             desc: "Recognition for outstanding academic performance and contributions to the community."
         }
     ]
@@ -64,35 +64,35 @@ export function Awards() {
             name: "NVIDIA-Certified Professional: Accelerated Data Science",
             issuer: "NVIDIA",
             year: "2026",
-            image: "/badges/nvidia-accelerated-data-scie-profes.png",
+            image: "/badges/nvidia-accelerated-data-scie-profes.webp",
             type: "badge" as const
         },
         {
             name: "AWS Certified: Machine Learning Engineer - Associate",
             issuer: "AWS",
             year: "2025",
-            image: "/badges/aws-ml-assoc.png",
+            image: "/badges/aws-ml-assoc.webp",
             type: "badge" as const
         },
         {
             name: "AWS Certified: Data Engineer - Associate",
             issuer: "AWS",
             year: "2024",
-            image: "/badges/aws-data-assoc.png",
+            image: "/badges/aws-data-assoc.webp",
             type: "badge" as const
         },
         {
             name: "Gemini Certified Educator",
             issuer: "Google",
             year: "2025",
-            image: "/awards/Gemini Certified Educator.jpg",
+            image: "/awards/Gemini Certified Educator.webp",
             type: "certificate" as const
         },
         {
             name: "Google Cloud Digital Talent Exploration",
             issuer: "Google",
             year: "2024",
-            image: "/awards/Google Cloud 學程結業證書.jpg",
+            image: "/awards/Google Cloud 學程結業證書.webp",
             type: "certificate" as const
         }
     ]
