@@ -2,16 +2,24 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Home, Moon, Sun, Printer, ChevronRight, ChevronLeft, Columns2, Square, ZoomIn, ZoomOut, RotateCcw } from "lucide-react"
+import { Home, Moon, Sun, Printer, ChevronRight, ChevronLeft, Columns2, Square, ZoomIn, ZoomOut, Languages } from "lucide-react"
 import { useTheme } from "next-themes"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { useResumeLayoutStore } from "@/store/resume-layout"
 
 export function FloatingActions() {
     const { setTheme, theme } = useTheme()
     const [isCollapsed, setIsCollapsed] = useState(false)
     const { viewMode, singleScale, dualScale, toggleViewMode, zoomIn, zoomOut, resetZoom } = useResumeLayoutStore()
+    const pathname = usePathname()
     const scale = viewMode === 'single' ? singleScale : dualScale
+
+    // Language toggle logic
+    const isZh = pathname?.includes('/resume_zh')
+    const targetPath = isZh ? '/resume' : '/resume_zh'
+    const currentLang = isZh ? '中' : 'EN'
+    const targetLang = isZh ? 'English' : '中文'
 
     return (
         <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 print:hidden">
@@ -47,6 +55,19 @@ export function FloatingActions() {
                         <Link href="/" title="返回首頁">
                             <Home className="h-5 w-5" />
                             <span className="sr-only">返回首頁</span>
+                        </Link>
+                    </Button>
+
+                    {/* Language Toggle */}
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        asChild
+                        className="h-10 w-10 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
+                    >
+                        <Link href={targetPath} title={`切換至${targetLang}版`}>
+                            <span className="text-sm font-semibold">{currentLang}</span>
+                            <span className="sr-only">切換至{targetLang}版</span>
                         </Link>
                     </Button>
 
