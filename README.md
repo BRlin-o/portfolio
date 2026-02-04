@@ -94,12 +94,32 @@ The site URL is resolved in this order:
 
 ## 🚀 Deployment
 
-This project is configured for **Vercel** deployment:
+This project supports a **Hybrid Deployment Strategy**:
 
+### 1. Vercel (Recommended)
+By default, the project is optimized for Vercel (SSR, Image Optimization).
 1. Connect your GitHub repository to Vercel
 2. Vercel will auto-detect Next.js settings
-3. (Optional) Set custom domain in Vercel dashboard
-4. Done! Preview URLs work automatically
+3. Done!
+
+### 2. Cloudflare Pages / Workers
+The project supports pure static export for Cloudflare.
+1. Connect your GitHub repository to Cloudflare Pages
+2. **Build Settings**:
+   - **Build command**: `npm run build:cf` (Crucial: enables static export mode)
+   - **Build output directory**: `out`
+   - **Framework preset**: None / Custom
+3. Done!
+
+> **Note**: `npm run build:cf` sets `IS_EXPORT=true`, which disables Image Optimization and forces static output.
+
+### Deployment Commands
+
+| Platform | Command | Notes |
+|----------|---------|-------|
+| **Vercel** | `npm run build` | Default, SSR enabled |
+| **Cloudflare** | `npm run build:cf` | Static Export, No Image Opt |
+| **Manual** | `npm run deploy` | Builds static site & deploys via Wrangler |
 
 ## 📝 License
 
