@@ -12,7 +12,7 @@ export default function ResumeLayout({
     children: React.ReactNode;
 }) {
     return (
-        <div className="bg-slate-200 dark:bg-slate-900 print:bg-white min-h-screen">
+        <div className="resume-layout bg-slate-200 dark:bg-slate-900 print:bg-white h-screen flex flex-col overflow-x-hidden overflow-y-auto">
             <FloatingActions />
             {children}
         </div>

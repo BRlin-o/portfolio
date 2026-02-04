@@ -146,6 +146,25 @@
   animation: border-rotate 4s linear infinite;
 }
 
+/* Marquee Animation for Certifications Carousel */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee-paused {
+  animation-play-state: paused;
+}
+
 /* Glowing effect variants */
 .glowing-effect-default {
   --glow-primary: rgba(59, 130, 246, 0.4);
@@ -206,6 +225,13 @@
     /* Remove background: white !important so dark mode background stays */
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+  }
+
+  /* Reset resume-layout for print */
+  .resume-layout {
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
   }
 
   .resume-container {
@@ -281,4 +307,32 @@
     gap: 2rem;
     justify-content: center;
   }
+}
+
+/* Fix resume page overflow issues */
+.resume-container {
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+/* Ensure html/body don't create extra scrollbars for resume pages */
+html:has(.resume-layout),
+html:has(.resume-layout) body {
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Reset for print - allow full content to flow */
+@media print {
+
+  html:has(.resume-layout),
+  html:has(.resume-layout) body {
+    overflow: visible !important;
+    height: auto !important;
+  }
+}
+
+html:has(.resume-container),
+html:has(.resume-container) body {
+  overflow-x: hidden;
 }
