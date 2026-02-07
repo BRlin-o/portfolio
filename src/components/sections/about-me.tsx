@@ -39,7 +39,7 @@ export function AboutMe() {
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
 
                 {/* Content Container - Full height flex centering */}
-                <div className="container mx-auto px-4 md:px-8 lg:px-12 py-16 md:py-24 lg:py-20 relative z-10 w-full">
+                <div className="container mx-auto px-4 md:px-8 lg:px-12 py-12 md:py-20 lg:py-16 relative z-10 w-full">
                     <m.div
                         initial="hidden"
                         whileInView="show"
@@ -54,17 +54,17 @@ export function AboutMe() {
                             <span className="h-px w-16 bg-primary/30" />
                         </m.div>
 
-                        {/* Two Column Layout - Larger proportions */}
-                        <div className="grid gap-12 lg:gap-20 xl:gap-28 lg:grid-cols-2 items-center w-full max-w-7xl">
+                        {/* Two Column Layout - Larger proportions - Modified to give content more space */}
+                        <div className="grid gap-10 lg:gap-12 xl:gap-20 lg:grid-cols-12 items-center w-full max-w-7xl">
 
                             {/* Left - Portrait - Larger sizes */}
-                            <m.div variants={item} className="flex justify-center lg:justify-end">
+                            <m.div variants={item} className="flex justify-center lg:justify-end lg:col-span-5">
                                 <div className="relative group">
                                     {/* Glow effect */}
                                     <div className="absolute -inset-6 bg-gradient-to-br from-primary/30 via-purple-500/20 to-transparent rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 dark:from-primary/20 dark:via-purple-500/10" />
 
                                     {/* Portrait - Responsive sizes: mobile -> tablet -> desktop -> large desktop */}
-                                    <div className="relative w-80 sm:w-[22rem] md:w-[26rem] lg:w-[30rem] xl:w-[34rem] aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-slate-200/50 dark:ring-slate-700/50">
+                                    <div className="relative w-80 sm:w-[22rem] md:w-[26rem] lg:w-[26rem] xl:w-[30rem] aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-slate-200/50 dark:ring-slate-700/50">
                                         <Image
                                             src="/steven-portrait.png"
                                             alt="林承漢 Cheng-Han Lin"
@@ -97,7 +97,7 @@ export function AboutMe() {
                             </m.div>
 
                             {/* Right - Content - Larger text */}
-                            <m.div variants={item} className="flex flex-col gap-6 md:gap-8 text-center lg:text-left">
+                            <m.div variants={item} className="flex flex-col gap-5 md:gap-6 lg:gap-8 text-center lg:text-left lg:col-span-7">
                                 {/* Title */}
                                 <div>
                                     <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 mb-2 md:mb-3">{t('role')}</p>
