@@ -1,0 +1,304 @@
+{
+    "Navigation": {
+        "about": "About Me",
+        "background": "Background",
+        "experience": "Experience",
+        "projects": "Projects",
+        "awards": "Awards",
+        "contact": "Contact"
+    },
+    "Hero": {
+        "badge": "Available for Opportunities",
+        "greeting": "Hi, I'm",
+        "nameSuffix": "Lin",
+        "description": "Cloud Engineer & AI Solution Developer.",
+        "specialization": "Specializing in Generative AI, RAG Systems, and Scalable Cloud Architectures.",
+        "aboutMe": "About Me",
+        "viewResume": "View Resume"
+    },
+    "AboutMe": {
+        "sectionLabel": "About Me",
+        "role": "Cloud Engineer & AI Solution Developer",
+        "headingPrefix": "Building",
+        "headingHighlight": "Scalable AI",
+        "headingSuffix": "Solutions",
+        "summary1Prefix": "M.S. in Computer Science and Information Engineering, with research spanning Information Security and Image Processing, specializing in ",
+        "summary1Suffix": ".",
+        "degree": "M.S. in Computer Science and Information Engineering",
+        "genAI": "Generative AI Applications",
+        "cloudArchitecture": "Cloud Solution Architecture",
+        "summary2Part1": "Through Multi-Agent systems, RAG frameworks, and AWS/GCP cloud services, I have successfully delivered enterprise-grade scalable AI solutions. With ",
+        "summary2Part2": ", I have achieved excellent results in various hackathons and national competitions, with practical experience in leading technical teams and driving digital transformation.",
+        "certifications": "NVIDIA, AWS, Google Cloud international certifications",
+        "highlightedAwards": "Highlighted Awards",
+        "award1Title": "55th National Skills Competition",
+        "award1Desc": "— National 4th Place & Central Region 1st Place",
+        "award2Title": "AI Wave | Taiwan Generative AI Application Hackathon",
+        "award2Desc": "— Gogoro Smart Mobility Category 1st Place",
+        "award3Title": "2022 ITSA National Programming Geek Challenge",
+        "award3Desc": "— Web & Information Systems Category 1st Place",
+        "professionalCertifications": "Professional Certifications",
+        "viewAll": "View All",
+        "yearsLabel": "Years",
+        "projectsLabel": "Projects"
+    },
+    "Background": {
+        "title": "Background",
+        "subtitle": "Education, community involvement, and technical skills.",
+        "education": "Education",
+        "ms": "MS, Computer Science and Information Engineering",
+        "msSchool": "National Taichung University of Science and Technology",
+        "msThesis": "Thesis: Optimized Two-Dimensional Histogram-Based Reversible Data Hiding Technique for JPEG",
+        "bs": "BS, Computer Science and Information Engineering",
+        "bsSchool": "National Taichung University of Science and Technology",
+        "honorStudent": "Honor Student",
+        "community": "Community",
+        "awsUserGroup": "AWS User Group Taiwan",
+        "awsUserGroupRole": "Active Member & Speaker",
+        "awsUserGroupDesc": "Shared \"Multi-Agent RAG System Implementation\" at May 2024 Meetup.",
+        "volunteerExperience": "Volunteer Experience",
+        "volunteer1": "AWS Community Day (2023-2025)",
+        "volunteer2": "AWS Summit (2024-2025)",
+        "technicalSkills": "Technical Skills",
+        "languages": "Languages",
+        "aiMl": "AI / ML",
+        "cloudDevOps": "Cloud & DevOps",
+        "dataTools": "Data & Tools"
+    },
+    "Experience": {
+        "title": "Professional Experience",
+        "subtitle": "Proven track record in software engineering and data-driven solutions.",
+        "job1Company": "BETO ENG. & MKTG., CO., LTD.",
+        "job1Role": "Data Engineer & Executive Assistant (Part-time)",
+        "job1Period": "Sep 2023 - Dec 2024",
+        "job1Desc1": "Led digital transformation for Sales & Finance depts (50+ users), reducing report prep time by 40%.",
+        "job1Desc2": "Developed 10+ interactive BI dashboards (Tableau/Alteryx) for C-level insights.",
+        "job1Desc3": "Optimized ETL pipelines for SAP data, improving cross-team efficiency by 30%.",
+        "job1Desc4": "Conducted market research on GenAI & BI trends from 20+ tech conferences (AWS Summit, etc.).",
+        "job2Role": "Software Engineer",
+        "job2Period": "Jan 2023 - Sep 2023",
+        "job2Desc1": "Delivered internal solutions saving 500k+ TWD in external consulting costs.",
+        "job2Desc2": "Built Attendance Analysis Platform serving 500+ employees, reducing HR reporting time from 60min to instant.",
+        "job2Desc3": "Automated inventory sync for 30+ SKUs, cutting manual workload by 25%.",
+        "job2Desc4": "Implemented containerized microservices (Docker, CI/CD), improving stability by 40%."
+    },
+    "Projects": {
+        "title": "Featured Projects",
+        "subtitle": "A selection of projects showcasing my expertise in AI, cloud, and full-stack development.",
+        "tabWork": "Work",
+        "tabHackathon": "Hackathon",
+        "tabSide": "Side",
+        "viewDemo": "Demo",
+        "viewDetails": "Details",
+        "viewCode": "Code"
+    },
+    "Awards": {
+        "title": "Awards & Certifications",
+        "subtitle": "Recognition for technical excellence and professional development.",
+        "tabAwards": "Awards",
+        "tabCertifications": "Certifications",
+        "clickToEnlarge": "Click to enlarge"
+    },
+    "Contact": {
+        "title": "Get in Touch",
+        "subtitle": "Interested in collaboration or have a project in mind? Let's connect.",
+        "emailMe": "Email Me",
+        "footer": "© {year} BR Lin. All rights reserved.",
+        "builtWith": "Built with Next.js, Tailwind CSS, & shadcn/ui"
+    },
+    "Resume": {
+        "name": "Cheng-Han Lin",
+        "englishName": "Cheng-Han Lin (Steven)",
+        "title": "Cloud Architect & AI Solution Developer",
+        "summary": "<strong>MS in Computer Science</strong> with research in Information Security and Image Processing. Specializing in <highlight>Generative AI applications</highlight> and <highlight>Cloud solution architecture</highlight>. Successfully delivered enterprise-grade, scalable AI solutions leveraging Multi-Agent Systems, RAG frameworks, and AWS/GCP cloud services. Holding <highlight>international certifications from NVIDIA, AWS, and Google Cloud</highlight>, with notable results in multiple hackathons and national competitions. Proven track record in leading technical teams and driving digital transformation.",
+        "sections": {
+            "experience": "Professional Experience",
+            "education": "Education",
+            "featuredProjects": "Featured Projects",
+            "projects": "Projects",
+            "awards": "Awards & Certifications",
+            "competitions": "Competition Awards",
+            "certifications": "Professional Certifications",
+            "publications": "Publications",
+            "community": "Community Involvement",
+            "skills": "Technical Skills"
+        },
+        "experience": {
+            "job1": {
+                "title": "Data Engineer & Executive Assistant",
+                "company": "BETO ENG. & MKTG., CO., LTD.",
+                "type": "Part-time",
+                "period": "Sep 2023 – Dec 2024",
+                "desc1": "Led enterprise BI implementation supporting <strong>50+ users</strong> in Sales & Finance digital transformation",
+                "desc2": "Developed <strong>10+ interactive dashboards</strong> (sales analytics, financial reports, executive KPIs), reducing report preparation time by <strong>40%</strong>",
+                "desc3": "Built cross-department dashboards (Sales to C-level), <strong>eliminating data silos</strong> and improving efficiency by <strong>30%</strong>",
+                "desc4": "Maintained ETL pipelines with <strong>Alteryx</strong>, processing <strong>SAP</strong> data for real-time business intelligence",
+                "desc5": "Attended <strong>20+ tech conferences</strong> (AWS Summit, Google DevFest, COMPUTEX) for trend research in 2024"
+            },
+            "job2": {
+                "title": "Software Engineer",
+                "company": "BETO ENG. & MKTG., CO., LTD.",
+                "period": "Jan 2023 – Sep 2023",
+                "desc1": "Delivered internal solutions replacing external consulting services, saving over <strong>500K TWD</strong> in development costs",
+                "desc2": "Built attendance analysis platform serving <strong>500+ employees</strong>, reducing HR report generation from 60 minutes to real-time (<strong>saving 6 hours weekly</strong>)",
+                "desc3": "Developed inventory sync system managing <strong>30+ SKUs</strong> and <strong>20 warehouse staff</strong>, reducing manual workload by <strong>25%</strong>",
+                "desc4": "Implemented containerized microservices with Docker and CI/CD, improving system stability by <strong>40%</strong> and troubleshooting efficiency by <strong>75%</strong>"
+            }
+        },
+        "education": {
+            "ms": {
+                "degree": "M.S. in Computer Science and Information Engineering",
+                "school": "National Taichung University of Science and Technology",
+                "period": "2023 – 2025",
+                "thesis": "Thesis: Optimized Two-Dimensional Histogram-Based Reversible Data Hiding for JPEG",
+                "tags": [
+                    "Image Processing",
+                    "Reversible Data Hiding",
+                    "Information Security",
+                    "AI/ML",
+                    "Generative AI"
+                ]
+            },
+            "bs": {
+                "degree": "B.S. in Computer Science and Information Engineering",
+                "school": "National Taichung University of Science and Technology",
+                "period": "2019 – 2023",
+                "tags": [
+                    "GPA 3.83/4.0",
+                    "Rank 3/55 (Top 5%)",
+                    "Honor Student",
+                    "Early Graduation"
+                ]
+            }
+        },
+        "featuredProjects": {
+            "gogoro": {
+                "title": "Gogoro Smart Vehicle Customer Service Assistant",
+                "event": "AIWave: 2024 Generative AI Application Hackathon (Gogoro Category)",
+                "award": "🥇 1st Place",
+                "desc1": "Designed <strong>Multi-Agent ReAct</strong> architecture supporting <strong>12 electric vehicle models</strong>",
+                "desc2": "Built RAG system processing <strong>800+ pages</strong> of technical manuals with vector search",
+                "desc3": "AWS cloud deployment: <strong>S3 + Bedrock + OpenSearch</strong>",
+                "desc4": "Delivered complete solution in <strong>30-hour</strong> marathon"
+            },
+            "etmall": {
+                "title": "AI Smart Sales Assistant",
+                "event": "Eastern Media Shopping TV Network",
+                "award": "Finalist",
+                "desc1": "<strong>Three-tier AI Architecture</strong>: Coach → Sales → Evaluation Agent",
+                "desc2": "Integrated <strong>100+ customer attributes</strong> for real-time personalized recommendations",
+                "desc3": "AWS Bedrock + Transcribe + Polly <strong>Voice AI</strong> stack",
+                "desc4": "Led <strong>5-person team</strong> to complete prototype and gain business approval"
+            }
+        },
+        "projects": {
+            "beto": {
+                "title": "BETO Digital Hub",
+                "desc1": "Integrated <strong>SAP/BI data</strong>, eliminating data silos",
+                "desc2": "Supports <strong>multi-dimensional filtering</strong> and <strong>side-by-side comparative analysis</strong>"
+            },
+            "splitpush": {
+                "title": "Splitpush E-commerce Platform",
+                "desc1": "Led <strong>4-person team</strong> to deliver complete e-commerce platform",
+                "desc2": "Docker CI/CD pipeline reduced deployment time by <strong>60%</strong>"
+            },
+            "fanbar": {
+                "title": "FanBar - Image Translator",
+                "desc1": "<strong>AI-powered</strong> manga/image translation platform",
+                "desc2": "<strong>CTD + OCR + LLM</strong> pipeline with LAMA inpainting"
+            },
+            "tripfan": {
+                "title": "TripFan - AI Travel Assistant",
+                "desc1": "<strong>AI product recognition</strong> + menu translation features",
+                "desc2": "<strong>Cross-platform</strong> (Web/iOS) with dynamic theming"
+            }
+        },
+        "awards": {
+            "competition1": {
+                "badge": "4th Place",
+                "title": "55th National Skills Competition",
+                "desc": "Cloud Computing Category, 2025"
+            },
+            "competition2": {
+                "badge": "1st Place",
+                "title": "55th Regional Skills Competition Youth Division",
+                "desc": "Cloud Computing Category, 2025"
+            },
+            "competition3": {
+                "badge": "1st Place",
+                "title": "AIWave | Taiwan Generative AI Application Hackathon",
+                "desc": "Gogoro Smart Mobility Category, 2024"
+            },
+            "competition4": {
+                "badge": "1st Place",
+                "title": "2022 ITSA National Programming Geek Challenge",
+                "desc": "Web & Information Systems Category, 2022"
+            },
+            "competition5": {
+                "badge": "Model Student",
+                "title": "Taichung City Model Student Award",
+                "desc": "Outstanding Academic Performance, 2023"
+            }
+        },
+        "certifications": {
+            "cert1": {
+                "provider": "NVIDIA",
+                "title": "Accelerated Data Science - Professional",
+                "year": "2025"
+            },
+            "cert2": {
+                "provider": "NVIDIA",
+                "title": "Generative AI Agents Contest",
+                "year": "2024 • with LangChain"
+            },
+            "cert3": {
+                "provider": "AWS",
+                "title": "Machine Learning Engineer – Associate",
+                "year": "2025 • Early Adopter"
+            },
+            "cert4": {
+                "provider": "AWS",
+                "title": "Data Engineer – Associate",
+                "year": "2024"
+            },
+            "cert5": {
+                "provider": "Google",
+                "title": "Gemini Certified Educator",
+                "year": "2025"
+            },
+            "cert6": {
+                "provider": "Google",
+                "title": "Google Cloud Digital Talent Program",
+                "year": "2024"
+            }
+        },
+        "publications": {
+            "pub1": {
+                "citation": "Lin, C. H., & Hong, W. (2025). Adaptive reversible data hiding in JPEG images via pairwise nonzero AC expansion and frequency sorting.",
+                "venue": "ICASI 2025, IET Digital Library"
+            },
+            "pub2": {
+                "citation": "Zhou, X., Hong, W., Chen, T. S., Yang, G., & Lin, C. H. (2024). An authentication scheme for color images with grayscale invariance and recoverability.",
+                "venue": "Journal of Information Security and Applications"
+            }
+        },
+        "community": {
+            "group": "AWS User Group Taiwan",
+            "talk": "Tech Talk: Shared \"Multi-Agent RAG System Implementation\" at May 2024 Meetup",
+            "volunteer": "Volunteer: AWS Community Day (2023-2025), AWS Summit (2024-2025)",
+            "host": "Session Host: AWS Community Day 2025"
+        },
+        "skills": {
+            "languages": "Languages",
+            "aiMl": "AI / ML",
+            "cloudDevOps": "Cloud & DevOps",
+            "dataFrontend": "Data & Frontend"
+        },
+        "floatingActions": {
+            "backToHome": "Back to Home",
+            "print": "Print Resume",
+            "switchToEnglish": "Switch to English",
+            "switchToChinese": "Switch to Chinese"
+        }
+    }
+}

@@ -7,9 +7,10 @@ import { GlowingEffect } from "@/components/ui/glowing-effect"
 import { useResumeLayoutStore } from "@/store/resume-layout"
 import { LazyMotion, domAnimation, m } from "motion/react"
 import {
-    Mail, Github, Linkedin, Phone, MapPin, Globe,
+    Mail, Github, Linkedin, Phone, Globe,
     GraduationCap, Briefcase, Rocket, Code2, Trophy, BookOpen, Users, Award
 } from "lucide-react"
+import { useTranslations } from 'next-intl'
 
 // Glowing section wrapper component with proximity-based glow effect
 function GlowingSection({
@@ -59,6 +60,7 @@ function SectionTitle({
 export default function ResumePage() {
     const { viewMode, singleScale, dualScale, initializeLayout } = useResumeLayoutStore()
     const [isMounted, setIsMounted] = React.useState(false)
+    const t = useTranslations('Resume')
 
     React.useEffect(() => {
         setIsMounted(true)
@@ -89,6 +91,25 @@ export default function ResumePage() {
         show: { opacity: 1, y: 0 }
     }
 
+    // Tech skill arrays (not translated as they are proper nouns)
+    const job1Skills = ["Tableau", "Alteryx", "BI", "ETL", "SAP", "Python"]
+    const job2Skills = ["Python", "C#", "React JS", "SQL", "Docker", "CI/CD"]
+    const gogoroTech = ["LangChain", "RAG", "Agent", "AWS", "OpenSearch", "ETL", "Docker", "CI/CD"]
+    const etmallTech = ["TEN-Agent", "Dify.ai", "Agent", "Bedrock", "AWS"]
+    const betoTech = ["Next.js", "SAP", "Zustand", "OnlyOffice"]
+    const splitpushTech = ["PHP", "Docker", "Alipay", "Aliyun"]
+    const fanbarTech = ["React", "Python", "PyTorch", "LLM"]
+    const tripfanTech = ["Next.js", "Gemini", "Capacitor", "Zustand"]
+
+    // Rich text helper for rendering <strong> tags in translations
+    const richText = (key: string) => t.rich(key, {
+        strong: (chunks) => <strong>{chunks}</strong>
+    })
+    const languages = ["Python", "TypeScript", "C++", "C#", "PHP", "Java"]
+    const aiMl = ["PyTorch", "LangChain", "RAG", "Agentic", "TensorFlow"]
+    const cloudDevOps = ["AWS", "GCP", "Docker", "Kubernetes", "CI/CD"]
+    const dataFrontend = ["Tableau", "Alteryx", "PostgreSQL", "React JS", "Next.js"]
+
     return (
         <LazyMotion features={domAnimation}>
             <div className="resume-container py-4 px-3 md:py-6 bg-slate-50/50 dark:bg-slate-950 flex-1">
@@ -117,13 +138,13 @@ export default function ResumePage() {
                                     {/* Left: Name & Title */}
                                     <div className="shrink-0 mb-4 md:mb-0 print:mb-0">
                                         <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-50">
-                                            CHENG-HAN LIN
+                                            {t('name')}
                                         </h1>
                                         <p className="text-base text-blue-600 dark:text-blue-400 font-medium">
-                                            Steven 林承漢
+                                            {t('englishName')}
                                         </p>
                                         <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
-                                            Cloud Engineer & AI Solution Developer
+                                            {t('title')}
                                         </p>
                                     </div>
                                     {/* Right: Contact Info Grid */}
@@ -151,38 +172,38 @@ export default function ResumePage() {
                             <m.section variants={item}>
                                 <GlowingSection>
                                     <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                                        <strong className="text-slate-900 dark:text-slate-100">MS in Computer Science</strong> with research in Information Security and Image Processing.
-                                        Specializing in <strong className="text-blue-600 dark:text-blue-400">Generative AI applications</strong> and <strong className="text-blue-600 dark:text-blue-400">Cloud solution architecture</strong>.
-                                        Successfully delivered enterprise-grade, scalable AI solutions leveraging Multi-Agent Systems, RAG frameworks, and AWS/GCP cloud services.
-                                        Holding <strong className="text-blue-600 dark:text-blue-400">international certifications from NVIDIA, AWS, and Google Cloud</strong>, with notable results in multiple hackathons and national competitions. Proven track record in leading technical teams and driving digital transformation.
+                                        {t.rich('summary', {
+                                            strong: (chunks) => <strong className="text-slate-900 dark:text-slate-100">{chunks}</strong>,
+                                            highlight: (chunks) => <strong className="text-blue-600 dark:text-blue-400">{chunks}</strong>
+                                        })}
                                     </p>
                                 </GlowingSection>
                             </m.section>
 
                             {/* Professional Experience */}
                             <m.section variants={item}>
-                                <SectionTitle icon={Briefcase}>Professional Experience</SectionTitle>
+                                <SectionTitle icon={Briefcase}>{t('sections.experience')}</SectionTitle>
                                 <div className="space-y-2">
                                     {/* Role 1 */}
                                     <GlowingSection>
                                         <div className="flex justify-between items-start flex-wrap gap-1 mb-2">
                                             <div>
-                                                <span className="font-semibold text-sm text-slate-900 dark:text-slate-100">Data Engineer & Executive Assistant</span>
-                                                <p className="text-xs text-blue-600 dark:text-blue-400 font-medium">BETO ENG. & MKTG., CO., LTD. • Part-time</p>
+                                                <span className="font-semibold text-sm text-slate-900 dark:text-slate-100">{t('experience.job1.title')}</span>
+                                                <p className="text-xs text-blue-600 dark:text-blue-400 font-medium">{t('experience.job1.company')} • {t('experience.job1.type')}</p>
                                             </div>
-                                            <Badge variant="outline" className="text-[10px] px-2 py-0.5 shrink-0">Sep 2023 – Dec 2024</Badge>
+                                            <Badge variant="outline" className="text-[10px] px-2 py-0.5 shrink-0">{t('experience.job1.period')}</Badge>
                                         </div>
                                         <div className="flex flex-wrap gap-1 mb-2">
-                                            {["Tableau", "Alteryx", "BI", "ETL", "SAP", "Python"].map(t => (
-                                                <Badge key={t} variant="secondary" className="text-[9px] px-1.5 py-0">{t}</Badge>
+                                            {job1Skills.map(skill => (
+                                                <Badge key={skill} variant="secondary" className="text-[9px] px-1.5 py-0">{skill}</Badge>
                                             ))}
                                         </div>
                                         <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-0.5 list-disc list-inside">
-                                            <li>Collaborated on enterprise BI implementation supporting <strong>digital transformation</strong> for <strong>50+ users</strong></li>
-                                            <li>Built <strong>10+ interactive reports</strong> (sales analytics, financial reporting, executive KPIs), cutting report time by <strong>40%</strong></li>
-                                            <li>Created cross-functional dashboards from Sales to C-level, <strong>breaking data silos</strong> and boosting efficiency by <strong>30%</strong></li>
-                                            <li>Maintained ETL pipelines with <strong>Alteryx</strong>, processing <strong>SAP</strong> data for real-time business intelligence</li>
-                                            <li>Attended <strong>20+ tech conferences</strong> (AWS Summit, Google DevFest, COMPUTEX) for executive briefings</li>
+                                            <li>{richText('experience.job1.desc1')}</li>
+                                            <li>{richText('experience.job1.desc2')}</li>
+                                            <li>{richText('experience.job1.desc3')}</li>
+                                            <li>{richText('experience.job1.desc4')}</li>
+                                            <li>{richText('experience.job1.desc5')}</li>
                                         </ul>
                                     </GlowingSection>
 
@@ -190,21 +211,21 @@ export default function ResumePage() {
                                     <GlowingSection>
                                         <div className="flex justify-between items-start flex-wrap gap-1 mb-2">
                                             <div>
-                                                <span className="font-semibold text-sm text-slate-900 dark:text-slate-100">Software Engineer</span>
-                                                <p className="text-xs text-blue-600 dark:text-blue-400 font-medium">BETO ENG. & MKTG., CO., LTD.</p>
+                                                <span className="font-semibold text-sm text-slate-900 dark:text-slate-100">{t('experience.job2.title')}</span>
+                                                <p className="text-xs text-blue-600 dark:text-blue-400 font-medium">{t('experience.job2.company')}</p>
                                             </div>
-                                            <Badge variant="outline" className="text-[10px] px-2 py-0.5 shrink-0">Jan 2023 – Sep 2023</Badge>
+                                            <Badge variant="outline" className="text-[10px] px-2 py-0.5 shrink-0">{t('experience.job2.period')}</Badge>
                                         </div>
                                         <div className="flex flex-wrap gap-1 mb-2">
-                                            {["Python", "C#", "React JS", "SQL", "Docker", "CI/CD"].map(t => (
-                                                <Badge key={t} variant="secondary" className="text-[9px] px-1.5 py-0">{t}</Badge>
+                                            {job2Skills.map(skill => (
+                                                <Badge key={skill} variant="secondary" className="text-[9px] px-1.5 py-0">{skill}</Badge>
                                             ))}
                                         </div>
                                         <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-0.5 list-disc list-inside">
-                                            <li>Replaced external consultants with in-house solutions, saving <strong>500,000+ NTD</strong> in development costs</li>
-                                            <li>Built attendance analytics for <strong>500+ employees</strong>, cutting HR report time from 60min to instant (<strong>6hr/week saved</strong>)</li>
-                                            <li>Developed inventory sync system for <strong>30+ SKUs</strong> across <strong>20 warehouse staff</strong>, reducing workload by <strong>25%</strong></li>
-                                            <li>Containerized microservices with Docker & CI/CD, improving stability <strong>40%</strong> and troubleshooting <strong>75% faster</strong></li>
+                                            <li>{richText('experience.job2.desc1')}</li>
+                                            <li>{richText('experience.job2.desc2')}</li>
+                                            <li>{richText('experience.job2.desc3')}</li>
+                                            <li>{richText('experience.job2.desc4')}</li>
                                         </ul>
                                     </GlowingSection>
                                 </div>
@@ -212,38 +233,35 @@ export default function ResumePage() {
 
                             {/* Education */}
                             <m.section variants={item}>
-                                <SectionTitle icon={GraduationCap}>Education</SectionTitle>
+                                <SectionTitle icon={GraduationCap}>{t('sections.education')}</SectionTitle>
                                 <GlowingSection>
                                     <div className="space-y-2">
                                         <div className="flex justify-between items-start gap-2">
                                             <div className="flex-1">
-                                                <p className="font-semibold text-sm text-slate-900 dark:text-slate-100">MS, Computer Science & Information Engineering</p>
-                                                <p className="text-xs text-slate-500">National Taichung University of Science and Technology</p>
+                                                <p className="font-semibold text-sm text-slate-900 dark:text-slate-100">{t('education.ms.degree')}</p>
+                                                <p className="text-xs text-slate-500">{t('education.ms.school')}</p>
                                                 <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
-                                                    <span className="font-medium">Thesis:</span> Optimized Two-Dimensional Histogram-Based Reversible Data Hiding for JPEG
+                                                    {t('education.ms.thesis')}
                                                 </p>
                                                 <div className="mt-1 flex flex-wrap gap-1">
-                                                    <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[9px] px-1.5 py-0">Image Processing</Badge>
-                                                    <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[9px] px-1.5 py-0">Reversible Data Hiding</Badge>
-                                                    <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[9px] px-1.5 py-0">Security</Badge>
-                                                    <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[9px] px-1.5 py-0">AI/ML</Badge>
-                                                    <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[9px] px-1.5 py-0">GenAI</Badge>
+                                                    {(t.raw('education.ms.tags') as string[]).map((tag: string) => (
+                                                        <Badge key={tag} className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[9px] px-1.5 py-0">{tag}</Badge>
+                                                    ))}
                                                 </div>
                                             </div>
-                                            <Badge variant="outline" className="text-[10px] shrink-0">2023 – 2025</Badge>
+                                            <Badge variant="outline" className="text-[10px] shrink-0">{t('education.ms.period')}</Badge>
                                         </div>
                                         <div className="border-t border-slate-100 dark:border-slate-800 pt-2 flex justify-between items-start gap-2">
                                             <div className="flex-1">
-                                                <p className="font-semibold text-sm text-slate-900 dark:text-slate-100">BS, Computer Science & Information Engineering</p>
-                                                <p className="text-xs text-slate-500">National Taichung University of Science and Technology</p>
+                                                <p className="font-semibold text-sm text-slate-900 dark:text-slate-100">{t('education.bs.degree')}</p>
+                                                <p className="text-xs text-slate-500">{t('education.bs.school')}</p>
                                                 <div className="mt-1 flex flex-wrap gap-1">
-                                                    <Badge className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[9px] px-1.5 py-0">GPA 3.83/4.0</Badge>
-                                                    <Badge className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[9px] px-1.5 py-0">Top 5% (3/55)</Badge>
-                                                    <Badge className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[9px] px-1.5 py-0">Honors Student</Badge>
-                                                    <Badge className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[9px] px-1.5 py-0">Early Graduation</Badge>
+                                                    {(t.raw('education.bs.tags') as string[]).map((tag: string) => (
+                                                        <Badge key={tag} className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[9px] px-1.5 py-0">{tag}</Badge>
+                                                    ))}
                                                 </div>
                                             </div>
-                                            <Badge variant="outline" className="text-[10px] shrink-0">2019 – 2023</Badge>
+                                            <Badge variant="outline" className="text-[10px] shrink-0">{t('education.bs.period')}</Badge>
                                         </div>
                                     </div>
                                 </GlowingSection>
@@ -251,45 +269,45 @@ export default function ResumePage() {
 
                             {/* Featured Projects */}
                             <m.section variants={item} className="break-inside-avoid">
-                                <SectionTitle icon={Rocket}>Featured Projects</SectionTitle>
+                                <SectionTitle icon={Rocket}>{t('sections.featuredProjects')}</SectionTitle>
                                 <div className="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-2">
-                                    {/* Project 1 */}
+                                    {/* Project 1 - Gogoro */}
                                     <GlowingSection>
                                         <div className="flex items-start justify-between gap-2 mb-1.5">
-                                            <span className="font-semibold text-sm text-slate-900 dark:text-slate-100">Gogoro Smart Scooter Wizard</span>
-                                            <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[8px] px-1.5 py-0 shrink-0">🥇 1st Place</Badge>
+                                            <span className="font-semibold text-sm text-slate-900 dark:text-slate-100">{t('featuredProjects.gogoro.title')}</span>
+                                            <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[8px] px-1.5 py-0 shrink-0">{t('featuredProjects.gogoro.award')}</Badge>
                                         </div>
-                                        <p className="text-xs text-slate-500 mb-1.5">AIWave: Taiwan Generative AI Applications Hackathon 2024</p>
+                                        <p className="text-xs text-slate-500 mb-1.5">{t('featuredProjects.gogoro.event')}</p>
                                         <div className="flex flex-wrap gap-1 mb-1.5">
-                                            {["LangChain", "RAG", "Agent", "AWS", "OpenSearch", "ETL", "Docker", "CI/CD"].map(t => (
-                                                <Badge key={t} variant="outline" className="text-[8px] px-1 py-0">{t}</Badge>
+                                            {gogoroTech.map(tech => (
+                                                <Badge key={tech} variant="outline" className="text-[8px] px-1 py-0">{tech}</Badge>
                                             ))}
                                         </div>
                                         <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-0.5 list-disc list-inside">
-                                            <li><strong>Multi-Agent ReAct</strong> architecture for <strong>12 scooter models</strong></li>
-                                            <li>RAG system over <strong>800+ pages</strong> with vector search</li>
-                                            <li>AWS deployment: <strong>S3 + Bedrock + OpenSearch</strong></li>
-                                            <li>Full solution delivered in <strong>30-hour</strong> hackathon</li>
+                                            <li>{richText('featuredProjects.gogoro.desc1')}</li>
+                                            <li>{richText('featuredProjects.gogoro.desc2')}</li>
+                                            <li>{richText('featuredProjects.gogoro.desc3')}</li>
+                                            <li>{richText('featuredProjects.gogoro.desc4')}</li>
                                         </ul>
                                     </GlowingSection>
 
-                                    {/* Project 2 */}
+                                    {/* Project 2 - ETmall */}
                                     <GlowingSection>
                                         <div className="flex items-start justify-between gap-2 mb-1.5">
-                                            <span className="font-semibold text-sm text-slate-900 dark:text-slate-100">AI-Powered Sales Agent</span>
-                                            <Badge className="bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300 text-[8px] px-1.5 py-0 shrink-0">Finalist</Badge>
+                                            <span className="font-semibold text-sm text-slate-900 dark:text-slate-100">{t('featuredProjects.etmall.title')}</span>
+                                            <Badge className="bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300 text-[8px] px-1.5 py-0 shrink-0">{t('featuredProjects.etmall.award')}</Badge>
                                         </div>
-                                        <p className="text-xs text-slate-500 mb-1.5">ETmall TV Shopping</p>
+                                        <p className="text-xs text-slate-500 mb-1.5">{t('featuredProjects.etmall.event')}</p>
                                         <div className="flex flex-wrap gap-1 mb-1.5">
-                                            {["TEN-Agent", "Dify.ai", "Agent", "Bedrock", "AWS"].map(t => (
-                                                <Badge key={t} variant="outline" className="text-[8px] px-1 py-0">{t}</Badge>
+                                            {etmallTech.map(tech => (
+                                                <Badge key={tech} variant="outline" className="text-[8px] px-1 py-0">{tech}</Badge>
                                             ))}
                                         </div>
                                         <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-0.5 list-disc list-inside">
-                                            <li><strong>3-tier AI</strong>: Coach → Sales → Evaluation Agent</li>
-                                            <li><strong>100+ customer attributes</strong> for real-time personalization</li>
-                                            <li>AWS Bedrock + Transcribe + Polly <strong>voice AI</strong> stack</li>
-                                            <li>Led <strong>5-member team</strong> with full stakeholder approval</li>
+                                            <li>{richText('featuredProjects.etmall.desc1')}</li>
+                                            <li>{richText('featuredProjects.etmall.desc2')}</li>
+                                            <li>{richText('featuredProjects.etmall.desc3')}</li>
+                                            <li>{richText('featuredProjects.etmall.desc4')}</li>
                                         </ul>
                                     </GlowingSection>
                                 </div>
@@ -307,54 +325,54 @@ export default function ResumePage() {
                         >
                             {/* Projects */}
                             <m.section variants={item}>
-                                <SectionTitle icon={Code2}>Projects</SectionTitle>
+                                <SectionTitle icon={Code2}>{t('sections.projects')}</SectionTitle>
                                 <div className="grid grid-cols-2 gap-2">
                                     <GlowingSection>
-                                        <p className="font-semibold text-sm text-slate-900 dark:text-slate-100">BETO Digital Hub</p>
+                                        <p className="font-semibold text-sm text-slate-900 dark:text-slate-100">{t('projects.beto.title')}</p>
                                         <div className="flex flex-wrap gap-1 my-1">
-                                            {["Next.js", "SAP", "Zustand", "OnlyOffice"].map(t => (
-                                                <Badge key={t} variant="outline" className="text-[8px] px-1 py-0">{t}</Badge>
+                                            {betoTech.map(tech => (
+                                                <Badge key={tech} variant="outline" className="text-[8px] px-1 py-0">{tech}</Badge>
                                             ))}
                                         </div>
                                         <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-0.5 list-disc list-inside">
-                                            <li><strong>SAP/BI data</strong> integration, eliminating <strong>data silos</strong></li>
-                                            <li><strong>Multi-dimension</strong> filtering + side-by-side <strong>comparison</strong></li>
+                                            <li>{richText('projects.beto.desc1')}</li>
+                                            <li>{richText('projects.beto.desc2')}</li>
                                         </ul>
                                     </GlowingSection>
                                     <GlowingSection>
-                                        <p className="font-semibold text-sm text-slate-900 dark:text-slate-100">Splitpush E-commerce</p>
+                                        <p className="font-semibold text-sm text-slate-900 dark:text-slate-100">{t('projects.splitpush.title')}</p>
                                         <div className="flex flex-wrap gap-1 my-1">
-                                            {["PHP", "Docker", "Alipay", "Aliyun"].map(t => (
-                                                <Badge key={t} variant="outline" className="text-[8px] px-1 py-0">{t}</Badge>
+                                            {splitpushTech.map(tech => (
+                                                <Badge key={tech} variant="outline" className="text-[8px] px-1 py-0">{tech}</Badge>
                                             ))}
                                         </div>
                                         <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-0.5 list-disc list-inside">
-                                            <li>Led <strong>4-member team</strong> delivering full e-commerce platform</li>
-                                            <li><strong>60% faster</strong> deployment with Docker CI/CD</li>
+                                            <li>{richText('projects.splitpush.desc1')}</li>
+                                            <li>{richText('projects.splitpush.desc2')}</li>
                                         </ul>
                                     </GlowingSection>
                                     <GlowingSection>
-                                        <p className="font-semibold text-sm text-slate-900 dark:text-slate-100">FanBar - Image Translator</p>
+                                        <p className="font-semibold text-sm text-slate-900 dark:text-slate-100">{t('projects.fanbar.title')}</p>
                                         <div className="flex flex-wrap gap-1 my-1">
-                                            {["React", "Python", "PyTorch", "LLM"].map(t => (
-                                                <Badge key={t} variant="outline" className="text-[8px] px-1 py-0">{t}</Badge>
+                                            {fanbarTech.map(tech => (
+                                                <Badge key={tech} variant="outline" className="text-[8px] px-1 py-0">{tech}</Badge>
                                             ))}
                                         </div>
                                         <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-0.5 list-disc list-inside">
-                                            <li><strong>AI-powered</strong> manga/image translation platform</li>
-                                            <li><strong>CTD + OCR + LLM</strong> pipeline with LAMA inpainting</li>
+                                            <li>{richText('projects.fanbar.desc1')}</li>
+                                            <li>{richText('projects.fanbar.desc2')}</li>
                                         </ul>
                                     </GlowingSection>
                                     <GlowingSection>
-                                        <p className="font-semibold text-sm text-slate-900 dark:text-slate-100">TripFan - AI Travel Assistant</p>
+                                        <p className="font-semibold text-sm text-slate-900 dark:text-slate-100">{t('projects.tripfan.title')}</p>
                                         <div className="flex flex-wrap gap-1 my-1">
-                                            {["Next.js", "Gemini", "Capacitor", "Zustand"].map(t => (
-                                                <Badge key={t} variant="outline" className="text-[8px] px-1 py-0">{t}</Badge>
+                                            {tripfanTech.map(tech => (
+                                                <Badge key={tech} variant="outline" className="text-[8px] px-1 py-0">{tech}</Badge>
                                             ))}
                                         </div>
                                         <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-0.5 list-disc list-inside">
-                                            <li><strong>AI product scanner</strong> + menu translator for travelers</li>
-                                            <li><strong>Multi-platform</strong> (Web/iOS) with location-based themes</li>
+                                            <li>{richText('projects.tripfan.desc1')}</li>
+                                            <li>{richText('projects.tripfan.desc2')}</li>
                                         </ul>
                                     </GlowingSection>
                                 </div>
@@ -362,48 +380,48 @@ export default function ResumePage() {
 
                             {/* Awards & Certifications */}
                             <m.section variants={item}>
-                                <SectionTitle icon={Trophy}>Awards & Certifications</SectionTitle>
+                                <SectionTitle icon={Trophy}>{t('sections.awards')}</SectionTitle>
                                 <div className="grid grid-cols-2 gap-2">
                                     {/* Competition Awards */}
                                     <GlowingSection>
                                         <div className="flex items-center gap-1.5 mb-2">
                                             <Trophy className="h-3.5 w-3.5 text-yellow-500" />
-                                            <span className="font-medium text-xs text-slate-700 dark:text-slate-300">Competition Awards</span>
+                                            <span className="font-medium text-xs text-slate-700 dark:text-slate-300">{t('sections.competitions')}</span>
                                         </div>
                                         <div className="space-y-1.5">
                                             <div className="flex items-start gap-2">
-                                                <Badge className="bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">4th</Badge>
+                                                <Badge className="bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">{t('awards.competition1.badge')}</Badge>
                                                 <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">55th National Skills Competition</p>
-                                                    <p className="text-[9px] text-slate-500">Cloud Computing, 2025</p>
+                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">{t('awards.competition1.title')}</p>
+                                                    <p className="text-[9px] text-slate-500">{t('awards.competition1.desc')}</p>
                                                 </div>
                                             </div>
                                             <div className="flex items-start gap-2">
-                                                <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">1st</Badge>
+                                                <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">{t('awards.competition2.badge')}</Badge>
                                                 <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">55th Central Region National Skills Competition</p>
-                                                    <p className="text-[9px] text-slate-500">Cloud Computing, 2025</p>
+                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">{t('awards.competition2.title')}</p>
+                                                    <p className="text-[9px] text-slate-500">{t('awards.competition2.desc')}</p>
                                                 </div>
                                             </div>
                                             <div className="flex items-start gap-2">
-                                                <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">1st</Badge>
+                                                <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">{t('awards.competition3.badge')}</Badge>
                                                 <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">AIWave: Taiwan Generative AI Applications Hackathon</p>
-                                                    <p className="text-[9px] text-slate-500">Gogoro Smart Mobility, 2024</p>
+                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">{t('awards.competition3.title')}</p>
+                                                    <p className="text-[9px] text-slate-500">{t('awards.competition3.desc')}</p>
                                                 </div>
                                             </div>
                                             <div className="flex items-start gap-2">
-                                                <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">1st</Badge>
+                                                <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">{t('awards.competition4.badge')}</Badge>
                                                 <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">2022 ITSA Programming Geek Contest</p>
-                                                    <p className="text-[9px] text-slate-500">Information System and Web Application, 2022</p>
+                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">{t('awards.competition4.title')}</p>
+                                                    <p className="text-[9px] text-slate-500">{t('awards.competition4.desc')}</p>
                                                 </div>
                                             </div>
                                             <div className="flex items-start gap-2">
-                                                <Badge className="bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">Merit</Badge>
+                                                <Badge className="bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">{t('awards.competition5.badge')}</Badge>
                                                 <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">Taichung City Honors Student Award</p>
-                                                    <p className="text-[9px] text-slate-500">Outstanding Academic Performance, 2023</p>
+                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">{t('awards.competition5.title')}</p>
+                                                    <p className="text-[9px] text-slate-500">{t('awards.competition5.desc')}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -413,49 +431,49 @@ export default function ResumePage() {
                                     <GlowingSection>
                                         <div className="flex items-center gap-1.5 mb-2">
                                             <Award className="h-3.5 w-3.5 text-orange-500" />
-                                            <span className="font-medium text-xs text-slate-700 dark:text-slate-300">Certifications</span>
+                                            <span className="font-medium text-xs text-slate-700 dark:text-slate-300">{t('sections.certifications')}</span>
                                         </div>
                                         <div className="space-y-1.5">
                                             <div className="flex items-start gap-2">
-                                                <Badge className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">NVIDIA</Badge>
+                                                <Badge className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">{t('certifications.cert1.provider')}</Badge>
                                                 <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">Accelerated Data Science - Professional</p>
-                                                    <p className="text-[9px] text-slate-500">2025</p>
+                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">{t('certifications.cert1.title')}</p>
+                                                    <p className="text-[9px] text-slate-500">{t('certifications.cert1.year')}</p>
                                                 </div>
                                             </div>
                                             <div className="flex items-start gap-2">
-                                                <Badge className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">NVIDIA</Badge>
+                                                <Badge className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">{t('certifications.cert2.provider')}</Badge>
                                                 <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">Generative AI Agents Contest</p>
-                                                    <p className="text-[9px] text-slate-500">2024 • with LangChain</p>
+                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">{t('certifications.cert2.title')}</p>
+                                                    <p className="text-[9px] text-slate-500">{t('certifications.cert2.year')}</p>
                                                 </div>
                                             </div>
                                             <div className="flex items-start gap-2">
-                                                <Badge className="bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">AWS</Badge>
+                                                <Badge className="bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">{t('certifications.cert3.provider')}</Badge>
                                                 <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">Machine Learning Engineer – Associate</p>
-                                                    <p className="text-[9px] text-slate-500">2025 • Early Adopter</p>
+                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">{t('certifications.cert3.title')}</p>
+                                                    <p className="text-[9px] text-slate-500">{t('certifications.cert3.year')}</p>
                                                 </div>
                                             </div>
                                             <div className="flex items-start gap-2">
-                                                <Badge className="bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">AWS</Badge>
+                                                <Badge className="bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">{t('certifications.cert4.provider')}</Badge>
                                                 <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">Data Engineer – Associate</p>
-                                                    <p className="text-[9px] text-slate-500">2024</p>
+                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">{t('certifications.cert4.title')}</p>
+                                                    <p className="text-[9px] text-slate-500">{t('certifications.cert4.year')}</p>
                                                 </div>
                                             </div>
                                             <div className="flex items-start gap-2">
-                                                <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">Google</Badge>
+                                                <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">{t('certifications.cert5.provider')}</Badge>
                                                 <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">Gemini Certified Educator</p>
-                                                    <p className="text-[9px] text-slate-500">2025</p>
+                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">{t('certifications.cert5.title')}</p>
+                                                    <p className="text-[9px] text-slate-500">{t('certifications.cert5.year')}</p>
                                                 </div>
                                             </div>
                                             <div className="flex items-start gap-2">
-                                                <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">Google</Badge>
+                                                <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">{t('certifications.cert6.provider')}</Badge>
                                                 <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">Google Cloud Digital Talent Exploration Program</p>
-                                                    <p className="text-[9px] text-slate-500">2024</p>
+                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">{t('certifications.cert6.title')}</p>
+                                                    <p className="text-[9px] text-slate-500">{t('certifications.cert6.year')}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -465,20 +483,20 @@ export default function ResumePage() {
 
                             {/* Publications */}
                             <m.section variants={item}>
-                                <SectionTitle icon={BookOpen}>Publications</SectionTitle>
+                                <SectionTitle icon={BookOpen}>{t('sections.publications')}</SectionTitle>
                                 <GlowingSection>
                                     <div className="space-y-2">
                                         <div className="border-l-2 border-green-400 pl-2">
                                             <p className="text-xs text-slate-700 dark:text-slate-300">
-                                                <strong>Lin, C. H., & Hong, W. (2025).</strong> Adaptive reversible data hiding in JPEG images via pairwise nonzero AC expansion and frequency sorting.
+                                                <strong>{t('publications.pub1.citation')}</strong>
                                             </p>
-                                            <p className="text-[10px] text-slate-500 italic">ICASI 2025, IET Digital Library</p>
+                                            <p className="text-[10px] text-slate-500 italic">{t('publications.pub1.venue')}</p>
                                         </div>
                                         <div className="border-l-2 border-slate-300 dark:border-slate-600 pl-2">
                                             <p className="text-xs text-slate-700 dark:text-slate-300">
-                                                <strong>Zhou, X., Hong, W., Chen, T. S., Yang, G., & Lin, C. H. (2024).</strong> An authentication scheme for color images with grayscale invariance and recoverability.
+                                                <strong>{t('publications.pub2.citation')}</strong>
                                             </p>
-                                            <p className="text-[10px] text-slate-500 italic">Journal of Information Security and Applications</p>
+                                            <p className="text-[10px] text-slate-500 italic">{t('publications.pub2.venue')}</p>
                                         </div>
                                     </div>
                                 </GlowingSection>
@@ -486,52 +504,52 @@ export default function ResumePage() {
 
                             {/* Community */}
                             <m.section variants={item}>
-                                <SectionTitle icon={Users}>Community Involvement</SectionTitle>
+                                <SectionTitle icon={Users}>{t('sections.community')}</SectionTitle>
                                 <GlowingSection>
                                     <div className="flex items-center gap-2 mb-2">
-                                        <Badge className="bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400 text-[9px] px-1.5 py-0">AWS User Group Taiwan</Badge>
+                                        <Badge className="bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400 text-[9px] px-1.5 py-0">{t('community.group')}</Badge>
                                     </div>
                                     <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-0.5 list-disc list-inside">
-                                        <li><strong>Speaker:</strong> &ldquo;Multi-Agent RAG System Implementation&rdquo; at May 2024 Meetup</li>
-                                        <li><strong>Volunteer:</strong> AWS Community Day (2023-2025), AWS Summit (2024-2025)</li>
-                                        <li><strong>Session Host:</strong> AWS Community Day 2025</li>
+                                        <li>{t('community.talk')}</li>
+                                        <li>{t('community.volunteer')}</li>
+                                        <li>{t('community.host')}</li>
                                     </ul>
                                 </GlowingSection>
                             </m.section>
 
                             {/* Technical Skills */}
                             <m.section variants={item}>
-                                <SectionTitle icon={Code2}>Technical Skills</SectionTitle>
+                                <SectionTitle icon={Code2}>{t('sections.skills')}</SectionTitle>
                                 <GlowingSection>
                                     <div className="grid grid-cols-2 gap-x-4 gap-y-2">
                                         <div>
-                                            <p className="font-medium text-xs text-slate-700 dark:text-slate-300 mb-1">Languages</p>
+                                            <p className="font-medium text-xs text-slate-700 dark:text-slate-300 mb-1">{t('skills.languages')}</p>
                                             <div className="flex flex-wrap gap-1">
-                                                {["Python", "TypeScript", "C++", "C#", "PHP", "Java"].map(s => (
+                                                {languages.map(s => (
                                                     <Badge key={s} variant="secondary" className="text-[9px] px-1.5 py-0">{s}</Badge>
                                                 ))}
                                             </div>
                                         </div>
                                         <div>
-                                            <p className="font-medium text-xs text-slate-700 dark:text-slate-300 mb-1">AI / ML</p>
+                                            <p className="font-medium text-xs text-slate-700 dark:text-slate-300 mb-1">{t('skills.aiMl')}</p>
                                             <div className="flex flex-wrap gap-1">
-                                                {["PyTorch", "LangChain", "RAG", "Agentic", "TensorFlow"].map(s => (
+                                                {aiMl.map(s => (
                                                     <Badge key={s} variant="secondary" className="text-[9px] px-1.5 py-0">{s}</Badge>
                                                 ))}
                                             </div>
                                         </div>
                                         <div>
-                                            <p className="font-medium text-xs text-slate-700 dark:text-slate-300 mb-1">Cloud & DevOps</p>
+                                            <p className="font-medium text-xs text-slate-700 dark:text-slate-300 mb-1">{t('skills.cloudDevOps')}</p>
                                             <div className="flex flex-wrap gap-1">
-                                                {["AWS", "GCP", "Docker", "Kubernetes", "CI/CD"].map(s => (
+                                                {cloudDevOps.map(s => (
                                                     <Badge key={s} variant="secondary" className="text-[9px] px-1.5 py-0">{s}</Badge>
                                                 ))}
                                             </div>
                                         </div>
                                         <div>
-                                            <p className="font-medium text-xs text-slate-700 dark:text-slate-300 mb-1">Data & Frontend</p>
+                                            <p className="font-medium text-xs text-slate-700 dark:text-slate-300 mb-1">{t('skills.dataFrontend')}</p>
                                             <div className="flex flex-wrap gap-1">
-                                                {["Tableau", "Alteryx", "PostgreSQL", "React JS", "Next.js"].map(s => (
+                                                {dataFrontend.map(s => (
                                                     <Badge key={s} variant="secondary" className="text-[9px] px-1.5 py-0">{s}</Badge>
                                                 ))}
                                             </div>

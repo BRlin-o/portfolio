@@ -3,31 +3,33 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { LazyMotion, domAnimation, m } from "motion/react"
-import { Briefcase } from "lucide-react"
+import { useTranslations } from 'next-intl'
 
 export function Experience() {
+    const t = useTranslations('Experience')
+
     const experiences = [
         {
-            company: "BETO ENG. & MKTG., CO., LTD.",
-            role: "Data Engineer & Executive Assistant (Part-time)",
-            period: "Sep 2023 - Dec 2024",
+            company: t('job1Company'),
+            role: t('job1Role'),
+            period: t('job1Period'),
             description: [
-                "Led digital transformation for Sales & Finance depts (50+ users), reducing report prep time by 40%.",
-                "Developed 10+ interactive BI dashboards (Tableau/Alteryx) for C-level insights.",
-                "Optimized ETL pipelines for SAP data, improving cross-team efficiency by 30%.",
-                "Conducted market research on GenAI & BI trends from 20+ tech conferences (AWS Summit, etc.)."
+                t('job1Desc1'),
+                t('job1Desc2'),
+                t('job1Desc3'),
+                t('job1Desc4')
             ],
             skills: ["Tableau", "Alteryx", "SAP", "ETL", "BI", "Data Analysis"]
         },
         {
-            company: "BETO ENG. & MKTG., CO., LTD.",
-            role: "Software Engineer",
-            period: "Jan 2023 - Sep 2023",
+            company: t('job1Company'),
+            role: t('job2Role'),
+            period: t('job2Period'),
             description: [
-                "Delivered internal solutions saving 500k+ TWD in external consulting costs.",
-                "Built Attendance Analysis Platform serving 500+ employees, reducing HR reporting time from 60min to instant.",
-                "Automated inventory sync for 30+ SKUs, cutting manual workload by 25%.",
-                "Implemented containerized microservices (Docker, CI/CD), improving stability by 40%."
+                t('job2Desc1'),
+                t('job2Desc2'),
+                t('job2Desc3'),
+                t('job2Desc4')
             ],
             skills: ["Python", "C#", "React.js", "Docker", "DevOps"]
         }
@@ -44,9 +46,9 @@ export function Experience() {
                     className="flex flex-col gap-12"
                 >
                     <div className="text-center">
-                        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Professional Experience</h2>
+                        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{t('title')}</h2>
                         <p className="mt-4 text-muted-foreground md:text-lg">
-                            Proven track record in software engineering and data-driven solutions.
+                            {t('subtitle')}
                         </p>
                     </div>
 

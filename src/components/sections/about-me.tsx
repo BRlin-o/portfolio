@@ -4,8 +4,11 @@ import Image from "next/image"
 import Link from "next/link"
 import { LazyMotion, domAnimation, m } from "motion/react"
 import { ExternalLink, Trophy } from "lucide-react"
+import { useTranslations } from 'next-intl'
 
 export function AboutMe() {
+    const t = useTranslations('AboutMe')
+
     const certifications = [
         { name: "NVIDIA Accelerated Data Science", image: "/badges/nvidia-accelerated-data-scie-profes.webp" },
         { name: "AWS ML Associate", image: "/badges/aws-ml-assoc.webp" },
@@ -47,7 +50,7 @@ export function AboutMe() {
                         {/* Section Label */}
                         <m.div variants={item} className="flex items-center gap-4">
                             <span className="h-px w-16 bg-primary/30" />
-                            <span className="text-sm tracking-[0.3em] text-primary/70 uppercase font-medium">About Me</span>
+                            <span className="text-sm tracking-[0.3em] text-primary/70 uppercase font-medium">{t('sectionLabel')}</span>
                             <span className="h-px w-16 bg-primary/30" />
                         </m.div>
 
@@ -80,12 +83,12 @@ export function AboutMe() {
                                             <div className="flex gap-8">
                                                 <div className="text-center">
                                                     <span className="block text-2xl sm:text-3xl font-bold text-white">2+</span>
-                                                    <span className="text-xs sm:text-sm text-white/60 uppercase tracking-wider">Years</span>
+                                                    <span className="text-xs sm:text-sm text-white/60 uppercase tracking-wider">{t('yearsLabel')}</span>
                                                 </div>
                                                 <div className="w-px bg-white/20" />
                                                 <div className="text-center">
                                                     <span className="block text-2xl sm:text-3xl font-bold text-white">10+</span>
-                                                    <span className="text-xs sm:text-sm text-white/60 uppercase tracking-wider">Projects</span>
+                                                    <span className="text-xs sm:text-sm text-white/60 uppercase tracking-wider">{t('projectsLabel')}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -97,55 +100,56 @@ export function AboutMe() {
                             <m.div variants={item} className="flex flex-col gap-6 md:gap-8 text-center lg:text-left">
                                 {/* Title */}
                                 <div>
-                                    <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 mb-2 md:mb-3">Cloud Engineer & AI Solution Developer</p>
+                                    <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 mb-2 md:mb-3">{t('role')}</p>
                                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold leading-tight text-slate-900 dark:text-white">
-                                        Building{" "}
+                                        {t('headingPrefix')}{" "}
                                         <span className="bg-gradient-to-r from-primary via-purple-500 to-purple-600 bg-clip-text text-transparent">
-                                            Scalable AI
+                                            {t('headingHighlight')}
                                         </span>
                                         <br className="hidden md:block" />
-                                        {" "}Solutions
+                                        {" "}{t('headingSuffix')}
                                     </h2>
                                 </div>
 
                                 {/* Summary - Following Resume Writing Style - Larger text */}
                                 <div className="space-y-4 md:space-y-5 text-slate-600 dark:text-slate-400 text-base md:text-lg lg:text-lg xl:text-xl leading-relaxed">
                                     <p>
-                                        <strong className="text-slate-900 dark:text-slate-100">電腦科學與資訊工程碩士</strong>，
-                                        研究領域涵蓋資訊安全與影像處理，專精於
-                                        <strong className="text-primary dark:text-primary">生成式 AI 應用</strong>與
-                                        <strong className="text-primary dark:text-primary">雲端解決方案架構</strong>。
+                                        {t('summary1Prefix')}
+                                        <strong className="text-primary dark:text-primary">{t('genAI')}</strong>
+                                        {' & '}
+                                        <strong className="text-primary dark:text-primary">{t('cloudArchitecture')}</strong>
+                                        {t('summary1Suffix')}
                                     </p>
                                     <p>
-                                        透過多代理系統 (Multi-Agent)、RAG 框架及 AWS/GCP 雲端服務，成功交付企業級可擴展 AI 解決方案。
-                                        持有 <strong className="text-primary dark:text-primary">NVIDIA、AWS、Google Cloud 等國際認證</strong>，
-                                        於多項黑客松及全國性競賽獲得佳績，具備帶領技術團隊與推動數位轉型之實務經驗。
+                                        {t('summary2Part1')}
+                                        <strong className="text-primary dark:text-primary">{t('certifications')}</strong>
+                                        {t('summary2Part2')}
                                     </p>
                                 </div>
 
                                 {/* Highlighted Awards */}
                                 <div className="pt-4">
-                                    <p className="text-xs md:text-sm uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-4 md:mb-5">Highlighted Awards</p>
+                                    <p className="text-xs md:text-sm uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-4 md:mb-5">{t('highlightedAwards')}</p>
                                     <ul className="space-y-3 text-sm md:text-base text-slate-600 dark:text-slate-400">
                                         <li className="flex items-start gap-3">
                                             <Trophy className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
                                             <span>
-                                                <strong className="text-slate-900 dark:text-slate-100">第 55 屆全國技能競賽</strong>
-                                                {" "}— 全國第四名 & 中區第一名
+                                                <strong className="text-slate-900 dark:text-slate-100">{t('award1Title')}</strong>
+                                                {" "}{t('award1Desc')}
                                             </span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <Trophy className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
                                             <span>
-                                                <strong className="text-slate-900 dark:text-slate-100">雲湧智生｜臺灣生成式 AI 應用黑客松競賽</strong>
-                                                {" "}— Gogoro 智慧移動組 第一名
+                                                <strong className="text-slate-900 dark:text-slate-100">{t('award2Title')}</strong>
+                                                {" "}{t('award2Desc')}
                                             </span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <Trophy className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
                                             <span>
-                                                <strong className="text-slate-900 dark:text-slate-100">2022 ITSA 全國大專程式設計極客挑戰賽</strong>
-                                                {" "}— 網頁及資訊系統組 第一名
+                                                <strong className="text-slate-900 dark:text-slate-100">{t('award3Title')}</strong>
+                                                {" "}{t('award3Desc')}
                                             </span>
                                         </li>
                                     </ul>
@@ -153,7 +157,7 @@ export function AboutMe() {
 
                                 {/* Certifications - Larger badges */}
                                 <div className="pt-4">
-                                    <p className="text-xs md:text-sm uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-4 md:mb-5">Professional Certifications</p>
+                                    <p className="text-xs md:text-sm uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-4 md:mb-5">{t('professionalCertifications')}</p>
                                     <div className="flex flex-wrap justify-center lg:justify-start items-center gap-3 md:gap-4">
                                         {certifications.map((cert, index) => (
                                             <m.div
@@ -181,7 +185,7 @@ export function AboutMe() {
                                             href="#awards"
                                             className="flex flex-col items-center justify-center h-16 w-16 md:h-20 md:w-20 lg:h-20 lg:w-20 xl:h-24 xl:w-24 rounded-xl bg-slate-100/50 dark:bg-slate-800/30 border border-dashed border-slate-300 dark:border-slate-600 transition-all duration-300 hover:border-primary/50 hover:bg-slate-100 dark:hover:bg-slate-800/50 group"
                                         >
-                                            <span className="text-xs md:text-sm text-slate-500 dark:text-slate-400 group-hover:text-primary transition-colors">View All</span>
+                                            <span className="text-xs md:text-sm text-slate-500 dark:text-slate-400 group-hover:text-primary transition-colors">{t('viewAll')}</span>
                                             <ExternalLink className="h-3 w-3 md:h-4 md:w-4 text-slate-400 dark:text-slate-500 group-hover:text-primary mt-1" />
                                         </Link>
                                     </div>

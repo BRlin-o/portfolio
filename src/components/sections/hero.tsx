@@ -2,12 +2,15 @@
 
 import { Button } from "@/components/ui/button"
 import { ArrowDown, FileText } from "lucide-react"
-import { LazyMotion, domAnimation, m } from "motion/react"
+import { LazyMotion, domAnimation } from "motion/react"
 import * as motion from "motion/react-m"
 import { Typewriter } from "@/components/ui/typewriter-text"
+import { useTranslations } from 'next-intl'
 
 
 export function Hero() {
+    const t = useTranslations('Hero')
+
     return (
         <LazyMotion features={domAnimation}>
             <section id="hero" className="relative flex min-h-screen items-center justify-center overflow-hidden py-20 pb-32">
@@ -24,7 +27,7 @@ export function Hero() {
                         transition={{ duration: 0.5 }}
                     >
                         <span className="rounded-full border bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground">
-                            Available for Opportunities
+                            {t('badge')}
                         </span>
                     </motion.div>
 
@@ -34,7 +37,7 @@ export function Hero() {
                         transition={{ duration: 0.5, delay: 0.1 }}
                         className="text-4xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
                     >
-                        Hi, I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 dark:from-blue-400 dark:via-indigo-300 dark:to-purple-400">
+                        {t('greeting')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 dark:from-blue-400 dark:via-indigo-300 dark:to-purple-400">
                             <Typewriter
                                 text={["Cheng-Han", "Steven", "BR"]}
                                 speed={100}
@@ -42,7 +45,7 @@ export function Hero() {
                                 waitTime={3000}
                             // cursorChar={"_"}
                             // cursorClassName="ml-0"
-                            />Lin
+                            />{t('nameSuffix')}
                         </span>
                     </motion.h1>
 
@@ -52,8 +55,8 @@ export function Hero() {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8"
                     >
-                        Cloud Engineer & AI Solution Developer.<br className="hidden sm:inline" />
-                        Specializing in Generative AI, RAG Systems, and Scalable Cloud Architectures.
+                        {t('description')}<br className="hidden sm:inline" />
+                        {t('specialization')}
                     </motion.p>
 
                     <motion.div
@@ -64,12 +67,12 @@ export function Hero() {
                     >
                         <Button size="lg" asChild>
                             <a href="#about-me">
-                                About Me <ArrowDown className="ml-2 h-4 w-4" />
+                                {t('aboutMe')} <ArrowDown className="ml-2 h-4 w-4" />
                             </a>
                         </Button>
                         <Button variant="outline" size="lg" asChild>
                             <a href="/resume">
-                                View Resume <FileText className="ml-2 h-4 w-4" />
+                                {t('viewResume')} <FileText className="ml-2 h-4 w-4" />
                             </a>
                         </Button>
                     </motion.div>

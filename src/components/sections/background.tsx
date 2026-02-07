@@ -4,8 +4,11 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { LazyMotion, domAnimation, m } from "motion/react"
 import { GraduationCap, Code2, Users } from "lucide-react"
+import { useTranslations } from 'next-intl'
 
 export function Background() {
+    const t = useTranslations('Background')
+
     const container = {
         hidden: { opacity: 0 },
         show: {
@@ -32,9 +35,9 @@ export function Background() {
                     className="flex flex-col gap-12"
                 >
                     <m.div variants={item} className="text-center">
-                        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Background</h2>
+                        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{t('title')}</h2>
                         <p className="mt-4 text-muted-foreground md:text-lg">
-                            Education, community involvement, and technical skills.
+                            {t('subtitle')}
                         </p>
                     </m.div>
 
@@ -45,17 +48,17 @@ export function Background() {
                                 <CardHeader>
                                     <div className="flex items-center gap-2">
                                         <GraduationCap className="h-5 w-5 text-primary" />
-                                        <CardTitle>Education</CardTitle>
+                                        <CardTitle>{t('education')}</CardTitle>
                                     </div>
                                 </CardHeader>
                                 <CardContent className="space-y-6">
                                     <div>
                                         <div className="flex justify-between font-semibold">
-                                            <span>MS, Computer Science and Information Engineering</span>
+                                            <span>{t('ms')}</span>
                                             <span className="text-muted-foreground">2023 - 2025</span>
                                         </div>
-                                        <p className="text-sm text-muted-foreground">National Taichung University of Science and Technology</p>
-                                        <p className="mt-2 text-sm">Thesis: Optimized Two-Dimensional Histogram-Based Reversible Data Hiding Technique for JPEG</p>
+                                        <p className="text-sm text-muted-foreground">{t('msSchool')}</p>
+                                        <p className="mt-2 text-sm">{t('msThesis')}</p>
                                         <div className="mt-2 flex flex-wrap gap-1">
                                             {["Security", "Image Processing", "Reversible Data Hiding", "AI/ML", "GenAI"].map((field) => (
                                                 <Badge key={field} variant="outline" className="text-xs">{field}</Badge>
@@ -64,14 +67,14 @@ export function Background() {
                                     </div>
                                     <div>
                                         <div className="flex justify-between font-semibold">
-                                            <span>BS, Computer Science and Information Engineering</span>
+                                            <span>{t('bs')}</span>
                                             <span className="text-muted-foreground">2019 - 2023</span>
                                         </div>
-                                        <p className="text-sm text-muted-foreground">National Taichung University of Science and Technology</p>
+                                        <p className="text-sm text-muted-foreground">{t('bsSchool')}</p>
                                         <div className="mt-2 flex flex-wrap gap-2">
                                             <Badge variant="secondary">GPA 3.83/4.0</Badge>
                                             <Badge variant="secondary">Top 5% (3/55)</Badge>
-                                            <Badge variant="secondary">Honor Student</Badge>
+                                            <Badge variant="secondary">{t('honorStudent')}</Badge>
                                         </div>
                                     </div>
                                 </CardContent>
@@ -84,20 +87,20 @@ export function Background() {
                                 <CardHeader>
                                     <div className="flex items-center gap-2">
                                         <Users className="h-5 w-5 text-primary" />
-                                        <CardTitle>Community</CardTitle>
+                                        <CardTitle>{t('community')}</CardTitle>
                                     </div>
                                 </CardHeader>
                                 <CardContent className="space-y-4">
                                     <div>
-                                        <p className="font-semibold">AWS User Group Taiwan</p>
-                                        <p className="text-sm text-muted-foreground">Active Member & Speaker</p>
-                                        <p className="mt-2 text-sm">Shared "Multi-Agent RAG System Implementation" at May 2024 Meetup.</p>
+                                        <p className="font-semibold">{t('awsUserGroup')}</p>
+                                        <p className="text-sm text-muted-foreground">{t('awsUserGroupRole')}</p>
+                                        <p className="mt-2 text-sm">{t('awsUserGroupDesc')}</p>
                                     </div>
                                     <div>
-                                        <p className="font-semibold">Volunteer Experience</p>
+                                        <p className="font-semibold">{t('volunteerExperience')}</p>
                                         <ul className="mt-1 list-inside list-disc text-sm text-muted-foreground">
-                                            <li>AWS Community Day (2023-2025)</li>
-                                            <li>AWS Summit (2024-2025)</li>
+                                            <li>{t('volunteer1')}</li>
+                                            <li>{t('volunteer2')}</li>
                                         </ul>
                                     </div>
                                 </CardContent>
@@ -110,13 +113,13 @@ export function Background() {
                                 <CardHeader>
                                     <div className="flex items-center gap-2">
                                         <Code2 className="h-5 w-5 text-primary" />
-                                        <CardTitle>Technical Skills</CardTitle>
+                                        <CardTitle>{t('technicalSkills')}</CardTitle>
                                     </div>
                                 </CardHeader>
                                 <CardContent>
                                     <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-4">
                                         <div className="space-y-2">
-                                            <h4 className="font-medium">Languages</h4>
+                                            <h4 className="font-medium">{t('languages')}</h4>
                                             <div className="flex flex-wrap gap-2">
                                                 {["Python", "TypeScript", "C++", "C#", "Go"].map((s) => (
                                                     <Badge key={s} variant="outline">{s}</Badge>
@@ -124,7 +127,7 @@ export function Background() {
                                             </div>
                                         </div>
                                         <div className="space-y-2">
-                                            <h4 className="font-medium">AI / ML</h4>
+                                            <h4 className="font-medium">{t('aiMl')}</h4>
                                             <div className="flex flex-wrap gap-2">
                                                 {["PyTorch", "LangChain", "RAG", "Agentic Workflow", "TensorFlow"].map((s) => (
                                                     <Badge key={s} variant="outline">{s}</Badge>
@@ -132,7 +135,7 @@ export function Background() {
                                             </div>
                                         </div>
                                         <div className="space-y-2">
-                                            <h4 className="font-medium">Cloud & DevOps</h4>
+                                            <h4 className="font-medium">{t('cloudDevOps')}</h4>
                                             <div className="flex flex-wrap gap-2">
                                                 {["AWS", "GCP", "Docker", "Kubernetes", "CI/CD"].map((s) => (
                                                     <Badge key={s} variant="outline">{s}</Badge>
@@ -140,7 +143,7 @@ export function Background() {
                                             </div>
                                         </div>
                                         <div className="space-y-2">
-                                            <h4 className="font-medium">Data & Tools</h4>
+                                            <h4 className="font-medium">{t('dataTools')}</h4>
                                             <div className="flex flex-wrap gap-2">
                                                 {["Tableau", "Alteryx", "PostgreSQL", "React", "Next.js"].map((s) => (
                                                     <Badge key={s} variant="outline">{s}</Badge>

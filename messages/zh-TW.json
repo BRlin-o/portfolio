@@ -1,0 +1,304 @@
+{
+    "Navigation": {
+        "about": "關於我",
+        "background": "背景",
+        "experience": "經歷",
+        "projects": "專案",
+        "awards": "獎項",
+        "contact": "聯絡"
+    },
+    "Hero": {
+        "badge": "開放工作機會",
+        "greeting": "嗨，我是",
+        "nameSuffix": "林",
+        "description": "雲端工程師 & AI 解決方案開發者",
+        "specialization": "專精於生成式 AI、RAG 系統與可擴展雲端架構。",
+        "aboutMe": "關於我",
+        "viewResume": "查看履歷"
+    },
+    "AboutMe": {
+        "sectionLabel": "About Me",
+        "role": "Cloud Engineer & AI Solution Developer",
+        "headingPrefix": "Building",
+        "headingHighlight": "Scalable AI",
+        "headingSuffix": "Solutions",
+        "summary1Prefix": "電腦科學與資訊工程碩士，研究領域涵蓋資訊安全與影像處理，專精於",
+        "summary1Suffix": "。",
+        "degree": "電腦科學與資訊工程碩士",
+        "genAI": "生成式 AI 應用",
+        "cloudArchitecture": "雲端解決方案架構",
+        "summary2Part1": "透過多代理系統 (Multi-Agent)、RAG 框架及 AWS/GCP 雲端服務，成功交付企業級可擴展 AI 解決方案。持有 ",
+        "summary2Part2": "，於多項黑客松及全國性競賽獲得佳績，具備帶領技術團隊與推動數位轉型之實務經驗。",
+        "certifications": "NVIDIA、AWS、Google Cloud 等國際認證",
+        "highlightedAwards": "Highlighted Awards",
+        "award1Title": "第 55 屆全國技能競賽",
+        "award1Desc": "— 全國第四名 & 中區第一名",
+        "award2Title": "雲湧智生｜臺灣生成式 AI 應用黑客松競賽",
+        "award2Desc": "— Gogoro 智慧移動組 第一名",
+        "award3Title": "2022 ITSA 全國大專程式設計極客挑戰賽",
+        "award3Desc": "— 網頁及資訊系統組 第一名",
+        "professionalCertifications": "Professional Certifications",
+        "viewAll": "View All",
+        "yearsLabel": "Years",
+        "projectsLabel": "Projects"
+    },
+    "Background": {
+        "title": "背景",
+        "subtitle": "學歷、社群參與及技術專長。",
+        "education": "學歷",
+        "ms": "碩士，資訊工程學系",
+        "msSchool": "國立臺中科技大學",
+        "msThesis": "碩士論文：JPEG 影像之最佳化二維直方圖可逆式資料隱藏技術",
+        "bs": "學士，資訊工程學系",
+        "bsSchool": "國立臺中科技大學",
+        "honorStudent": "榮譽學生",
+        "community": "社群",
+        "awsUserGroup": "AWS 台灣使用者社群",
+        "awsUserGroupRole": "活躍成員 & 講者",
+        "awsUserGroupDesc": "於 2024 年 5 月 Meetup 分享「Multi-Agent RAG System 實作」。",
+        "volunteerExperience": "志工經歷",
+        "volunteer1": "AWS Community Day (2023-2025)",
+        "volunteer2": "AWS Summit (2024-2025)",
+        "technicalSkills": "技術專長",
+        "languages": "程式語言",
+        "aiMl": "AI / ML",
+        "cloudDevOps": "雲端 & DevOps",
+        "dataTools": "資料 & 工具"
+    },
+    "Experience": {
+        "title": "工作經歷",
+        "subtitle": "在軟體工程與數據驅動解決方案方面擁有豐富實績。",
+        "job1Company": "百德英業股份有限公司",
+        "job1Role": "資料工程師 & 特助（兼職）",
+        "job1Period": "2023年9月 - 2024年12月",
+        "job1Desc1": "主導業務與財務部門數位轉型（50+ 使用者），報表製作時間縮短 40%。",
+        "job1Desc2": "開發 10+ 互動式 BI 儀表板（Tableau/Alteryx），提供高階主管決策洞察。",
+        "job1Desc3": "優化 SAP 資料 ETL 流程，團隊協作效率提升 30%。",
+        "job1Desc4": "進行 GenAI & BI 趨勢市場調研，涵蓋 20+ 場科技研討會（AWS Summit 等）。",
+        "job2Role": "軟體工程師",
+        "job2Period": "2023年1月 - 2023年9月",
+        "job2Desc1": "交付內部解決方案，節省 50 萬+ 新台幣外部顧問費用。",
+        "job2Desc2": "建置考勤分析平台服務 500+ 員工，HR 報表時間從 60 分鐘縮短至即時。",
+        "job2Desc3": "自動化 30+ SKU 庫存同步，人工作業量減少 25%。",
+        "job2Desc4": "實施容器化微服務（Docker, CI/CD），系統穩定性提升 40%。"
+    },
+    "Projects": {
+        "title": "精選專案",
+        "subtitle": "展示我在 AI、雲端與全端開發方面專業能力的專案精選。",
+        "tabWork": "工作",
+        "tabHackathon": "黑客松",
+        "tabSide": "個人",
+        "viewDemo": "Demo",
+        "viewDetails": "詳情",
+        "viewCode": "程式碼"
+    },
+    "Awards": {
+        "title": "獎項與認證",
+        "subtitle": "技術卓越與專業發展的肯定。",
+        "tabAwards": "獎項",
+        "tabCertifications": "認證",
+        "clickToEnlarge": "點擊放大"
+    },
+    "Contact": {
+        "title": "聯絡我",
+        "subtitle": "對合作有興趣或有專案想法？讓我們聊聊。",
+        "emailMe": "寄信給我",
+        "footer": "© {year} BR Lin. All rights reserved.",
+        "builtWith": "使用 Next.js、Tailwind CSS 與 shadcn/ui 建置"
+    },
+    "Resume": {
+        "name": "林承漢",
+        "englishName": "Cheng-Han Lin (Steven)",
+        "title": "雲端架構師暨AI解決方案開發者",
+        "summary": "<strong>電腦科學與資訊工程碩士</strong>，研究領域涵蓋資訊安全與影像處理，專精於<highlight>生成式 AI 應用</highlight>與<highlight>雲端解決方案架構</highlight>。透過多代理系統 (Multi-Agent)、RAG 框架及 AWS/GCP 雲端服務，成功交付企業級可擴展 AI 解決方案。持有 <highlight>NVIDIA、AWS、Google Cloud 等國際認證</highlight>，於多項黑客松及全國性競賽獲得佳績，具備帶領技術團隊與推動數位轉型之實務經驗。",
+        "sections": {
+            "experience": "專業經歷",
+            "education": "學歷",
+            "featuredProjects": "重點專案",
+            "projects": "專案作品",
+            "awards": "獲獎與認證",
+            "competitions": "競賽獲獎",
+            "certifications": "專業認證",
+            "publications": "學術發表",
+            "community": "社群參與",
+            "skills": "技術能力"
+        },
+        "experience": {
+            "job1": {
+                "title": "資料工程師暨總經理助理",
+                "company": "雙餘實業股份有限公司",
+                "type": "兼職",
+                "period": "2023/09 – 2024/12",
+                "desc1": "協助企業 BI 導入專案，支援銷售與財務部門 <strong>50+ 使用者</strong>之數位轉型需求",
+                "desc2": "開發 <strong>10+ 互動式報表</strong>（銷售分析、財務報告、高階 KPI），減少報表製作時間達 <strong>40%</strong>",
+                "desc3": "建立跨部門儀表板（銷售至 C-level），<strong>打破資料孤島</strong>，提升整體效率 <strong>30%</strong>",
+                "desc4": "運用 <strong>Alteryx</strong> 維護 ETL 流程，處理 <strong>SAP</strong> 數據以提供即時商業智慧分析",
+                "desc5": "2024 年出席 <strong>20+ 場技術研討會</strong>（AWS Summit、Google DevFest、COMPUTEX 等）進行趨勢研究"
+            },
+            "job2": {
+                "title": "軟體工程師",
+                "company": "雙餘實業股份有限公司",
+                "period": "2023/01 – 2023/09",
+                "desc1": "交付內部解決方案取代外部顧問服務，節省開發成本逾 <strong>50 萬新台幣</strong>",
+                "desc2": "建立出勤分析平台服務 <strong>500+ 員工</strong>，將 HR 報表產製時間由 60 分鐘縮短至即時（<strong>每週節省 6 小時</strong>）",
+                "desc3": "開發庫存同步系統，管理 <strong>30+ SKU</strong> 及 <strong>20 名</strong>倉儲人員作業，減少 <strong>25%</strong> 人工負擔",
+                "desc4": "實作容器化微服務架構搭配 Docker 與 CI/CD，系統穩定性提升 <strong>40%</strong>，故障排除效率提升 <strong>75%</strong>"
+            }
+        },
+        "education": {
+            "ms": {
+                "degree": "資訊工程系碩士",
+                "school": "國立臺中科技大學",
+                "period": "2023 – 2025",
+                "thesis": "碩士論文：Optimized Two-Dimensional Histogram-Based Reversible Data Hiding for JPEG",
+                "tags": [
+                    "影像處理",
+                    "可逆資訊隱藏",
+                    "資訊安全",
+                    "AI/ML",
+                    "生成式AI"
+                ]
+            },
+            "bs": {
+                "degree": "資訊工程系學士",
+                "school": "國立臺中科技大學",
+                "period": "2019 – 2023",
+                "tags": [
+                    "GPA 3.83/4.0",
+                    "排名 3/55 (Top 5%)",
+                    "榮譽學生",
+                    "提前畢業"
+                ]
+            }
+        },
+        "featuredProjects": {
+            "gogoro": {
+                "title": "Gogoro 智慧機車客服萬事通",
+                "event": "AIWave: 2024 生成式 AI 應用黑客松（Gogoro 組）",
+                "award": "🥇 優選獎（1st）",
+                "desc1": "設計 <strong>Multi-Agent ReAct</strong> 架構，支援 <strong>12 款</strong>電動機車諮詢",
+                "desc2": "建置 RAG 系統處理 <strong>800+ 頁</strong>技術手冊，整合向量搜尋",
+                "desc3": "AWS 雲端部署：<strong>S3 + Bedrock + OpenSearch</strong>",
+                "desc4": "於 <strong>30 小時</strong>馬拉松中完成完整解決方案"
+            },
+            "etmall": {
+                "title": "AI 智能銷售助理",
+                "event": "東森購物 電視購物網絡",
+                "award": "決賽入圍",
+                "desc1": "<strong>三層 AI 架構</strong>：Coach → Sales → Evaluation Agent",
+                "desc2": "整合 <strong>100+ 客戶屬性</strong>實現即時個人化推薦",
+                "desc3": "AWS Bedrock + Transcribe + Polly <strong>語音 AI</strong> 堆疊",
+                "desc4": "帶領 <strong>5 人團隊</strong>完成原型開發並獲得業務認可"
+            }
+        },
+        "projects": {
+            "beto": {
+                "title": "BETO Digital Hub",
+                "desc1": "整合 <strong>SAP/BI 數據</strong>，消除資料孤島",
+                "desc2": "支援<strong>多維度篩選</strong>與並列<strong>比對分析</strong>"
+            },
+            "splitpush": {
+                "title": "Splitpush 電商平台",
+                "desc1": "帶領 <strong>4 人團隊</strong>交付完整電商平台",
+                "desc2": "Docker CI/CD 流程縮短 <strong>60%</strong> 部署時間"
+            },
+            "fanbar": {
+                "title": "FanBar - 圖片翻譯器",
+                "desc1": "<strong>AI 驅動</strong>漫畫/圖片翻譯平台",
+                "desc2": "<strong>CTD + OCR + LLM</strong> 流程搭配 LAMA 修復"
+            },
+            "tripfan": {
+                "title": "TripFan - AI 旅遊助手",
+                "desc1": "<strong>AI 商品辨識</strong> + 菜單翻譯功能",
+                "desc2": "<strong>跨平台</strong>（Web/iOS）支援動態主題"
+            }
+        },
+        "awards": {
+            "competition1": {
+                "badge": "第四名",
+                "title": "第 55 屆全國技能競賽",
+                "desc": "雲端運算職類，2025"
+            },
+            "competition2": {
+                "badge": "第一名",
+                "title": "第 55 屆分區技能競賽青年組",
+                "desc": "雲端運算職類，2025"
+            },
+            "competition3": {
+                "badge": "第一名",
+                "title": "雲湧智生｜臺灣生成式 AI 應用黑客松競賽",
+                "desc": "Gogoro 智慧移動組，2024"
+            },
+            "competition4": {
+                "badge": "第一名",
+                "title": "2022 ITSA 全國大專程式設計極客挑戰賽",
+                "desc": "網頁及資訊系統組，2022"
+            },
+            "competition5": {
+                "badge": "模範生",
+                "title": "台中市模範生獎",
+                "desc": "優秀學業表現，2023"
+            }
+        },
+        "certifications": {
+            "cert1": {
+                "provider": "NVIDIA",
+                "title": "Accelerated Data Science - Professional",
+                "year": "2025"
+            },
+            "cert2": {
+                "provider": "NVIDIA",
+                "title": "Generative AI Agents Contest",
+                "year": "2024 • with LangChain"
+            },
+            "cert3": {
+                "provider": "AWS",
+                "title": "Machine Learning Engineer – Associate",
+                "year": "2025 • Early Adopter"
+            },
+            "cert4": {
+                "provider": "AWS",
+                "title": "Data Engineer – Associate",
+                "year": "2024"
+            },
+            "cert5": {
+                "provider": "Google",
+                "title": "Gemini Certified Educator",
+                "year": "2025"
+            },
+            "cert6": {
+                "provider": "Google",
+                "title": "Google Cloud 數位人才探索計畫",
+                "year": "2024"
+            }
+        },
+        "publications": {
+            "pub1": {
+                "citation": "Lin, C. H., & Hong, W. (2025). Adaptive reversible data hiding in JPEG images via pairwise nonzero AC expansion and frequency sorting.",
+                "venue": "ICASI 2025, IET Digital Library"
+            },
+            "pub2": {
+                "citation": "Zhou, X., Hong, W., Chen, T. S., Yang, G., & Lin, C. H. (2024). An authentication scheme for color images with grayscale invariance and recoverability.",
+                "venue": "Journal of Information Security and Applications"
+            }
+        },
+        "community": {
+            "group": "AWS User Group Taiwan",
+            "talk": "技術分享：2024 年 5 月於 Meetup 分享「Multi-Agent RAG 系統實作」",
+            "volunteer": "志工服務：AWS Community Day (2023-2025)、AWS Summit (2024-2025)",
+            "host": "議程主持：AWS Community Day 2025"
+        },
+        "skills": {
+            "languages": "程式語言",
+            "aiMl": "AI / ML",
+            "cloudDevOps": "雲端與 DevOps",
+            "dataFrontend": "資料與前端"
+        },
+        "floatingActions": {
+            "backToHome": "返回首頁",
+            "print": "列印履歷",
+            "switchToEnglish": "切換至英文",
+            "switchToChinese": "切換至中文"
+        }
+    }
+}

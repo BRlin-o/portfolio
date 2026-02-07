@@ -2,24 +2,36 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Home, Moon, Sun, Printer, ChevronRight, ChevronLeft, Columns2, Square, ZoomIn, ZoomOut, Languages } from "lucide-react"
+import { Home, Moon, Sun, Printer, ChevronRight, ChevronLeft, Columns2, Square, ZoomIn, ZoomOut } from "lucide-react"
 import { useTheme } from "next-themes"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { useRouter } from "next/navigation"
+import { useLocale } from "next-intl"
 import { useResumeLayoutStore } from "@/store/resume-layout"
 
 export function FloatingActions() {
     const { setTheme, theme } = useTheme()
     const [isCollapsed, setIsCollapsed] = useState(false)
     const { viewMode, singleScale, dualScale, toggleViewMode, zoomIn, zoomOut, resetZoom } = useResumeLayoutStore()
-    const pathname = usePathname()
+    const locale = useLocale()
+    const router = useRouter()
     const scale = viewMode === 'single' ? singleScale : dualScale
 
-    // Language toggle logic
-    const isZh = pathname?.includes('/resume_zh')
-    const targetPath = isZh ? '/resume' : '/resume_zh'
-    const currentLang = isZh ? '中' : 'EN'
+    // Language toggle logic using next-intl locale
+    // Show the TARGET language icon (what the user can switch TO)
+    const isZh = locale === 'zh-TW'
+    const displayLang = isZh ? 'EN' : '中'  // Show what they can switch TO
     const targetLang = isZh ? 'English' : '中文'
+
+    const handleLanguageToggle = () => {
+        if (isZh) {
+            // Switch to English - use explicit /en prefix to avoid middleware redirect
+            router.push('/en/resume')
+        } else {
+            // Switch to Chinese - go to /zh-TW/resume
+            router.push('/zh-TW/resume')
+        }
+    }
 
     return (
         <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 print:hidden">
@@ -45,14 +57,14 @@ export function FloatingActions() {
                     className={`flex flex-col gap-2 p-2 rounded-xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200 dark:border-slate-700 shadow-lg transition-all duration-300 ${isCollapsed ? "opacity-0 scale-95 pointer-events-none w-0 p-0 overflow-hidden" : "opacity-100 scale-100"
                         }`}
                 >
-                    {/* Home */}
+                    {/* Home - locale-aware */}
                     <Button
                         variant="ghost"
                         size="icon"
                         asChild
                         className="h-10 w-10 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
                     >
-                        <Link href="/" title="返回首頁">
+                        <Link href={isZh ? '/zh-TW' : '/'} title="返回首頁">
                             <Home className="h-5 w-5" />
                             <span className="sr-only">返回首頁</span>
                         </Link>
@@ -62,13 +74,12 @@ export function FloatingActions() {
                     <Button
                         variant="ghost"
                         size="icon"
-                        asChild
+                        onClick={handleLanguageToggle}
                         className="h-10 w-10 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
+                        title={`切換至${targetLang}版`}
                     >
-                        <Link href={targetPath} title={`切換至${targetLang}版`}>
-                            <span className="text-sm font-semibold">{currentLang}</span>
-                            <span className="sr-only">切換至{targetLang}版</span>
-                        </Link>
+                        <span className="text-sm font-semibold">{displayLang}</span>
+                        <span className="sr-only">切換至{targetLang}版</span>
                     </Button>
 
                     {/* Divider */}
