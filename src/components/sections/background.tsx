@@ -1,11 +1,11 @@
 "use client"
 
 import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { LazyMotion, domAnimation, m } from "motion/react"
-import { GraduationCap, Code2, Users, Trophy } from "lucide-react"
+import { GraduationCap, Code2, Users } from "lucide-react"
 
-export function About() {
+export function Background() {
     const container = {
         hidden: { opacity: 0 },
         show: {
@@ -23,7 +23,7 @@ export function About() {
 
     return (
         <LazyMotion features={domAnimation}>
-            <section id="about" className="container mx-auto px-4 md:px-6 py-24 md:py-32">
+            <section id="background" className="container mx-auto px-4 md:px-6 py-24 md:py-32">
                 <m.div
                     initial="hidden"
                     whileInView="show"
@@ -32,9 +32,9 @@ export function About() {
                     className="flex flex-col gap-12"
                 >
                     <m.div variants={item} className="text-center">
-                        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">About Me</h2>
+                        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Background</h2>
                         <p className="mt-4 text-muted-foreground md:text-lg">
-                            Combining academic depth in Information Security with practical expertise in Cloud & AI.
+                            Education, community involvement, and technical skills.
                         </p>
                     </m.div>
 
@@ -151,7 +151,6 @@ export function About() {
                                 </CardContent>
                             </Card>
                         </m.div>
-
                     </div>
                 </m.div>
             </section>

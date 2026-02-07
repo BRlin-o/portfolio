@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/hero";
-import { About } from "@/components/sections/about";
+import { AboutMe } from "@/components/sections/about-me";
+import { Background } from "@/components/sections/background";
 import { Experience } from "@/components/sections/experience";
 import { Projects } from "@/components/sections/projects";
 import { Awards } from "@/components/sections/awards";
@@ -19,7 +20,11 @@ export default function Home() {
       </div>
 
       <div className="w-full">
-        <About />
+        <AboutMe />
+      </div>
+
+      <div className="w-full">
+        <Background />
       </div>
 
       <div className="w-full">
@@ -40,3 +45,4 @@ export default function Home() {
     </main>
   );
 }
+

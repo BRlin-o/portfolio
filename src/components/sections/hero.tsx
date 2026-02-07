@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, FileText } from "lucide-react"
+import { ArrowDown, FileText } from "lucide-react"
 import { LazyMotion, domAnimation, m } from "motion/react"
 import * as motion from "motion/react-m"
 import { Typewriter } from "@/components/ui/typewriter-text"
@@ -63,13 +63,13 @@ export function Hero() {
                         className="mt-4 flex gap-4"
                     >
                         <Button size="lg" asChild>
-                            <a href="#projects">
-                                View Projects <ArrowRight className="ml-2 h-4 w-4" />
+                            <a href="#about-me">
+                                About Me <ArrowDown className="ml-2 h-4 w-4" />
                             </a>
                         </Button>
                         <Button variant="outline" size="lg" asChild>
-                            <a href="#about">
-                                About Me <FileText className="ml-2 h-4 w-4" />
+                            <a href="/resume">
+                                View Resume <FileText className="ml-2 h-4 w-4" />
                             </a>
                         </Button>
                     </motion.div>
