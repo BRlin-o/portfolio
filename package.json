@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:cf": "IS_EXPORT=true next build",
-    "deploy": "IS_EXPORT=true npm run build && wrangler deploy",
+    "build:cf": "IS_EXPORT=true next build && bash scripts/postbuild-cf.sh",
+    "deploy": "npm run build:cf && wrangler deploy",
     "start": "next start",
     "lint": "eslint"
   },
