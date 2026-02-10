@@ -29,8 +29,7 @@ src/
 ├── app/                    # App Router pages and layouts
 │   ├── layout.tsx          # Root layout with metadata & JSON-LD
 │   ├── page.tsx            # Homepage
-│   ├── resume/             # English resume page
-│   ├── resume_zh/          # Chinese resume page
+│   ├── resume/             # Resume page (localized)
 │   ├── opengraph-image.tsx # Dynamic OG image generation
 │   ├── twitter-image.tsx   # Dynamic Twitter card image
 │   ├── robots.ts           # robots.txt generation
@@ -43,10 +42,11 @@ src/
 ├── lib/
 │   ├── constants.ts        # Site configuration (URL, metadata)
 │   └── utils.ts            # Utility functions
-└── public/
-    ├── awards/             # Award images (WebP)
-    ├── badges/             # Certification badges (WebP)
-    └── documents/          # Downloadable PDFs
+├── public/
+│   ├── awards/             # Award images (WebP)
+│   ├── badges/             # Certification badges (WebP)
+│   └── documents/          # Downloadable PDFs
+└── scripts/            # Build & deployment scripts
 ```
 
 ## 🔧 Environment Variables
@@ -81,7 +81,8 @@ The site URL is resolved in this order:
 |---------|--------|
 | `npm install` | Install dependencies |
 | `npm run dev` | Start dev server at `localhost:3000` |
-| `npm run build` | Build production site |
+| `npm run build` | Build production site (Vercel - SSR) |
+| `npm run build:cf` | Build production site (Cloudflare - Static) |
 | `npm run start` | Preview production build locally |
 
 ## 📄 Pages
@@ -89,8 +90,7 @@ The site URL is resolved in this order:
 | Route | Description |
 |-------|-------------|
 | `/` | Homepage with Hero, About, Experience, Projects, Awards |
-| `/resume` | English resume (A4 printable) |
-| `/resume_zh` | Chinese resume (A4 printable) |
+| `/resume` | Resume (localized) |
 
 ## 🚀 Deployment
 
@@ -106,7 +106,7 @@ By default, the project is optimized for Vercel (SSR, Image Optimization).
 The project supports pure static export for Cloudflare.
 1. Connect your GitHub repository to Cloudflare Pages
 2. **Build Settings**:
-   - **Build command**: `npm run build:cf` (Crucial: enables static export mode)
+   - **Build command**: `npm run build:cf` (Crucial: static export + 404 fix)
    - **Build output directory**: `out`
    - **Framework preset**: None / Custom
 3. Done!
@@ -118,7 +118,7 @@ The project supports pure static export for Cloudflare.
 | Platform | Command | Notes |
 |----------|---------|-------|
 | **Vercel** | `npm run build` | Default, SSR enabled |
-| **Cloudflare** | `npm run build:cf` | Static Export, No Image Opt |
+| **Cloudflare** | `npm run build:cf` | Static Export, Fixes 404 |
 | **Manual** | `npm run deploy` | Builds static site & deploys via Wrangler |
 
 ## 📝 License
