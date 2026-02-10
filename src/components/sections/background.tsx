@@ -121,7 +121,7 @@ export function Background() {
                                         <div className="space-y-2">
                                             <h4 className="font-medium">{t('languages')}</h4>
                                             <div className="flex flex-wrap gap-2">
-                                                {["Python", "TypeScript", "C++", "C#", "Go"].map((s) => (
+                                                {["Python", "TypeScript", "C++", "C#", "PHP", "Java"].map((s) => (
                                                     <Badge key={s} variant="outline">{s}</Badge>
                                                 ))}
                                             </div>
