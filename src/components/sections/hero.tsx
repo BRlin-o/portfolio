@@ -1,12 +1,20 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowDown, FileText } from "lucide-react"
+import { ArrowDown, FileText, Code, Globe, Database, Cloud, Brain, Sparkles } from "lucide-react"
 import { LazyMotion, domAnimation } from "motion/react"
 import * as motion from "motion/react-m"
 import { Typewriter } from "@/components/ui/typewriter-text"
 import { useTranslations } from 'next-intl'
 
+const skillBadges = [
+    { key: "software", icon: Code },
+    { key: "webSystem", icon: Globe },
+    { key: "data", icon: Database },
+    { key: "cloud", icon: Cloud },
+    { key: "aiMl", icon: Brain },
+    { key: "genAI", icon: Sparkles },
+] as const;
 
 export function Hero() {
     const t = useTranslations('Hero')
@@ -21,14 +29,28 @@ export function Hero() {
                 </div>
 
                 <div className="container flex flex-col items-center gap-4 text-center">
+                    {/* Skill Domain Badges */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.4 }}
+                        className="flex flex-wrap items-center justify-center gap-2"
                     >
-                        <span className="rounded-full border bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground">
-                            {t('badge')}
-                        </span>
+                        {skillBadges.map((badge, i) => {
+                            const Icon = badge.icon;
+                            return (
+                                <motion.span
+                                    key={badge.key}
+                                    initial={{ opacity: 0, y: 12, scale: 0.9 }}
+                                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                                    transition={{ duration: 0.35, delay: i * 0.07 }}
+                                    className="inline-flex items-center gap-1.5 rounded-full border bg-secondary/70 backdrop-blur-sm px-3 py-1 text-xs font-medium text-secondary-foreground shadow-sm transition-colors hover:bg-secondary"
+                                >
+                                    <Icon className="h-3.5 w-3.5" />
+                                    {t(`badges.${badge.key}`)}
+                                </motion.span>
+                            );
+                        })}
                     </motion.div>
 
                     <motion.h1

@@ -57,6 +57,39 @@ function SectionTitle({
     )
 }
 
+function AwardItem({ badge, title, org, desc, colorClass = "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400" }: { badge: string, title: string, org: string, desc: string, colorClass?: string }) {
+    return (
+        <div className="flex items-start gap-3 p-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+            <Badge className={`${colorClass} text-[9px] px-2 py-0.5 shrink-0 mt-0.5 min-w-[60px] justify-center shadow-sm`}>{badge}</Badge>
+            <div className="flex-1 min-w-0">
+                <p className="text-xs font-semibold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">{title}</p>
+                <div className="flex flex-wrap items-center gap-x-2 mt-0.5">
+                    <p className="text-[10px] text-blue-600 dark:text-blue-400 font-semibold">{org}</p>
+                    <span className="text-[9px] text-slate-300 dark:text-slate-600 hidden sm:inline">•</span>
+                    <p className="text-[10px] text-slate-500 w-full sm:w-auto">{desc}</p>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+function CertItem({ provider, title, year }: { provider: string, title: string, year: string }) {
+    let colorClass = "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300";
+    if (provider.includes("NVIDIA")) colorClass = "bg-[#76B900]/15 text-[#76B900] dark:bg-[#76B900]/20 dark:text-[#76B900]";
+    else if (provider.includes("AWS")) colorClass = "bg-[#FF9900]/15 text-[#FF9900] dark:bg-[#FF9900]/20 dark:text-[#FF9900]";
+    else if (provider.includes("Google")) colorClass = "bg-[#4285F4]/15 text-[#4285F4] dark:bg-[#4285F4]/20 dark:text-[#4285F4]";
+
+    return (
+        <div className="flex items-start gap-3 p-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+            <Badge className={`${colorClass} text-[9px] px-2 py-0.5 shrink-0 mt-0.5 min-w-[60px] justify-center shadow-sm`}>{provider}</Badge>
+            <div className="flex-1 min-w-0">
+                <p className="text-xs font-semibold text-slate-900 dark:text-slate-100 leading-snug tracking-tight">{title}</p>
+                <p className="text-[10px] text-slate-500 mt-0.5 font-medium">{year}</p>
+            </div>
+        </div>
+    )
+}
+
 export default function ResumePage() {
     const { viewMode, singleScale, dualScale, initializeLayout } = useResumeLayoutStore()
     const [isMounted, setIsMounted] = React.useState(false)
@@ -130,7 +163,7 @@ export default function ResumePage() {
                             initial="hidden"
                             animate="show"
                             variants={container}
-                            className="p-5 md:p-6 print:p-[8mm] space-y-4 print:space-y-2"
+                            className="p-5 md:p-6 print:p-[8mm] space-y-4 print:space-y-1.5"
                         >
                             {/* Header */}
                             <m.header variants={item} className="pb-3 border-b border-slate-100 dark:border-slate-800">
@@ -171,7 +204,7 @@ export default function ResumePage() {
                             {/* Summary */}
                             <m.section variants={item}>
                                 <GlowingSection>
-                                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                                    <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                                         {t.rich('summary', {
                                             strong: (chunks) => <strong className="text-slate-900 dark:text-slate-100">{chunks}</strong>,
                                             highlight: (chunks) => <strong className="text-blue-600 dark:text-blue-400">{chunks}</strong>
@@ -186,17 +219,19 @@ export default function ResumePage() {
                                 <div className="space-y-2">
                                     {/* Role 1 */}
                                     <GlowingSection>
-                                        <div className="flex justify-between items-start flex-wrap gap-1 mb-2">
+                                        <div className="flex justify-between items-start gap-2 mb-2">
                                             <div>
                                                 <span className="font-semibold text-sm text-slate-900 dark:text-slate-100">{t('experience.job1.title')}</span>
                                                 <p className="text-xs text-blue-600 dark:text-blue-400 font-medium">{t('experience.job1.company')} • {t('experience.job1.type')}</p>
                                             </div>
-                                            <Badge variant="outline" className="text-[10px] px-2 py-0.5 shrink-0">{t('experience.job1.period')}</Badge>
-                                        </div>
-                                        <div className="flex flex-wrap gap-1 mb-2">
-                                            {job1Skills.map(skill => (
-                                                <Badge key={skill} variant="secondary" className="text-[9px] px-1.5 py-0">{skill}</Badge>
-                                            ))}
+                                            <div className="flex flex-col items-end gap-1 shrink-0">
+                                                <Badge variant="outline" className="text-[10px] px-2 py-0.5">{t('experience.job1.period')}</Badge>
+                                                <div className="flex justify-end gap-1">
+                                                    {job1Skills.map(skill => (
+                                                        <Badge key={skill} variant="secondary" className="text-[9px] px-1.5 py-0">{skill}</Badge>
+                                                    ))}
+                                                </div>
+                                            </div>
                                         </div>
                                         <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-0.5 list-disc list-inside">
                                             <li>{richText('experience.job1.desc1')}</li>
@@ -209,17 +244,19 @@ export default function ResumePage() {
 
                                     {/* Role 2 */}
                                     <GlowingSection>
-                                        <div className="flex justify-between items-start flex-wrap gap-1 mb-2">
+                                        <div className="flex justify-between items-start gap-2 mb-2">
                                             <div>
                                                 <span className="font-semibold text-sm text-slate-900 dark:text-slate-100">{t('experience.job2.title')}</span>
                                                 <p className="text-xs text-blue-600 dark:text-blue-400 font-medium">{t('experience.job2.company')}</p>
                                             </div>
-                                            <Badge variant="outline" className="text-[10px] px-2 py-0.5 shrink-0">{t('experience.job2.period')}</Badge>
-                                        </div>
-                                        <div className="flex flex-wrap gap-1 mb-2">
-                                            {job2Skills.map(skill => (
-                                                <Badge key={skill} variant="secondary" className="text-[9px] px-1.5 py-0">{skill}</Badge>
-                                            ))}
+                                            <div className="flex flex-col items-end gap-1 shrink-0">
+                                                <Badge variant="outline" className="text-[10px] px-2 py-0.5">{t('experience.job2.period')}</Badge>
+                                                <div className="flex justify-end gap-1">
+                                                    {job2Skills.map(skill => (
+                                                        <Badge key={skill} variant="secondary" className="text-[9px] px-1.5 py-0">{skill}</Badge>
+                                                    ))}
+                                                </div>
+                                            </div>
                                         </div>
                                         <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-0.5 list-disc list-inside">
                                             <li>{richText('experience.job2.desc1')}</li>
@@ -321,7 +358,7 @@ export default function ResumePage() {
                             initial="hidden"
                             animate="show"
                             variants={container}
-                            className="p-5 md:p-6 print:p-[8mm] space-y-6 print:space-y-2"
+                            className="p-5 md:p-6 print:p-[8mm] space-y-6 print:space-y-1.5"
                         >
                             {/* Projects */}
                             <m.section variants={item}>
@@ -381,101 +418,86 @@ export default function ResumePage() {
                             {/* Awards & Certifications */}
                             <m.section variants={item}>
                                 <SectionTitle icon={Trophy}>{t('sections.awards')}</SectionTitle>
-                                <div className="grid grid-cols-2 gap-2">
+                                <div className="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-2">
                                     {/* Competition Awards */}
-                                    <GlowingSection>
-                                        <div className="flex items-center gap-1.5 mb-2">
-                                            <Trophy className="h-3.5 w-3.5 text-yellow-500" />
-                                            <span className="font-medium text-xs text-slate-700 dark:text-slate-300">{t('sections.competitions')}</span>
+                                    <GlowingSection className="h-full">
+                                        <div className="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100 dark:border-slate-800">
+                                            <Trophy className="h-4 w-4 text-yellow-500" />
+                                            <span className="font-semibold text-sm text-slate-900 dark:text-slate-100 tracking-tight">{t('sections.competitions')}</span>
                                         </div>
-                                        <div className="space-y-1.5">
-                                            <div className="flex items-start gap-2">
-                                                <Badge className="bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">{t('awards.competition1.badge')}</Badge>
-                                                <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">{t('awards.competition1.title')}</p>
-                                                    <p className="text-[9px] text-slate-500">{t('awards.competition1.desc')}</p>
-                                                </div>
-                                            </div>
-                                            <div className="flex items-start gap-2">
-                                                <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">{t('awards.competition2.badge')}</Badge>
-                                                <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">{t('awards.competition2.title')}</p>
-                                                    <p className="text-[9px] text-slate-500">{t('awards.competition2.desc')}</p>
-                                                </div>
-                                            </div>
-                                            <div className="flex items-start gap-2">
-                                                <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">{t('awards.competition3.badge')}</Badge>
-                                                <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">{t('awards.competition3.title')}</p>
-                                                    <p className="text-[9px] text-slate-500">{t('awards.competition3.desc')}</p>
-                                                </div>
-                                            </div>
-                                            <div className="flex items-start gap-2">
-                                                <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">{t('awards.competition4.badge')}</Badge>
-                                                <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">{t('awards.competition4.title')}</p>
-                                                    <p className="text-[9px] text-slate-500">{t('awards.competition4.desc')}</p>
-                                                </div>
-                                            </div>
-                                            <div className="flex items-start gap-2">
-                                                <Badge className="bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">{t('awards.competition5.badge')}</Badge>
-                                                <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">{t('awards.competition5.title')}</p>
-                                                    <p className="text-[9px] text-slate-500">{t('awards.competition5.desc')}</p>
-                                                </div>
-                                            </div>
+                                        <div className="space-y-1">
+                                            <AwardItem
+                                                badge={t('awards.competition1.badge')}
+                                                title={t('awards.competition1.title')}
+                                                org={t('awards.competition1.org')}
+                                                desc={t('awards.competition1.desc')}
+                                                colorClass="bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400"
+                                            />
+                                            <AwardItem
+                                                badge={t('awards.competition2.badge')}
+                                                title={t('awards.competition2.title')}
+                                                org={t('awards.competition2.org')}
+                                                desc={t('awards.competition2.desc')}
+                                            />
+                                            <AwardItem
+                                                badge={t('awards.competition3.badge')}
+                                                title={t('awards.competition3.title')}
+                                                org={t('awards.competition3.org')}
+                                                desc={t('awards.competition3.desc')}
+                                            />
+                                            <AwardItem
+                                                badge={t('awards.competition4.badge')}
+                                                title={t('awards.competition4.title')}
+                                                org={t('awards.competition4.org')}
+                                                desc={t('awards.competition4.desc')}
+                                            />
+                                            <AwardItem
+                                                badge={t('awards.competition5.badge')}
+                                                title={t('awards.competition5.title')}
+                                                org={t('awards.competition5.org')}
+                                                desc={t('awards.competition5.desc')}
+                                                colorClass="bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400"
+                                            />
                                         </div>
                                     </GlowingSection>
 
                                     {/* Certifications */}
-                                    <GlowingSection>
-                                        <div className="flex items-center gap-1.5 mb-2">
-                                            <Award className="h-3.5 w-3.5 text-orange-500" />
-                                            <span className="font-medium text-xs text-slate-700 dark:text-slate-300">{t('sections.certifications')}</span>
+                                    <GlowingSection className="h-full">
+                                        <div className="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100 dark:border-slate-800">
+                                            <Award className="h-4 w-4 text-orange-500" />
+                                            <span className="font-semibold text-sm text-slate-900 dark:text-slate-100 tracking-tight">{t('sections.certifications')}</span>
                                         </div>
-                                        <div className="space-y-1.5">
-                                            <div className="flex items-start gap-2">
-                                                <Badge className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">{t('certifications.cert1.provider')}</Badge>
-                                                <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">{t('certifications.cert1.title')}</p>
-                                                    <p className="text-[9px] text-slate-500">{t('certifications.cert1.year')}</p>
-                                                </div>
-                                            </div>
-                                            <div className="flex items-start gap-2">
-                                                <Badge className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">{t('certifications.cert2.provider')}</Badge>
-                                                <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">{t('certifications.cert2.title')}</p>
-                                                    <p className="text-[9px] text-slate-500">{t('certifications.cert2.year')}</p>
-                                                </div>
-                                            </div>
-                                            <div className="flex items-start gap-2">
-                                                <Badge className="bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">{t('certifications.cert3.provider')}</Badge>
-                                                <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">{t('certifications.cert3.title')}</p>
-                                                    <p className="text-[9px] text-slate-500">{t('certifications.cert3.year')}</p>
-                                                </div>
-                                            </div>
-                                            <div className="flex items-start gap-2">
-                                                <Badge className="bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">{t('certifications.cert4.provider')}</Badge>
-                                                <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">{t('certifications.cert4.title')}</p>
-                                                    <p className="text-[9px] text-slate-500">{t('certifications.cert4.year')}</p>
-                                                </div>
-                                            </div>
-                                            <div className="flex items-start gap-2">
-                                                <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">{t('certifications.cert5.provider')}</Badge>
-                                                <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">{t('certifications.cert5.title')}</p>
-                                                    <p className="text-[9px] text-slate-500">{t('certifications.cert5.year')}</p>
-                                                </div>
-                                            </div>
-                                            <div className="flex items-start gap-2">
-                                                <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 text-[8px] px-1 py-0 shrink-0 mt-0.5">{t('certifications.cert6.provider')}</Badge>
-                                                <div>
-                                                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200">{t('certifications.cert6.title')}</p>
-                                                    <p className="text-[9px] text-slate-500">{t('certifications.cert6.year')}</p>
-                                                </div>
-                                            </div>
+                                        <div className="space-y-1">
+                                            <CertItem
+                                                provider={t('certifications.cert1.provider')}
+                                                title={t('certifications.cert1.title')}
+                                                year={t('certifications.cert1.year')}
+                                            />
+                                            <CertItem
+                                                provider={t('certifications.cert2.provider')}
+                                                title={t('certifications.cert2.title')}
+                                                year={t('certifications.cert2.year')}
+                                            />
+                                            <CertItem
+                                                provider={t('certifications.cert3.provider')}
+                                                title={t('certifications.cert3.title')}
+                                                year={t('certifications.cert3.year')}
+                                            />
+                                            <CertItem
+                                                provider={t('certifications.cert4.provider')}
+                                                title={t('certifications.cert4.title')}
+                                                year={t('certifications.cert4.year')}
+                                            />
+                                            <CertItem
+                                                provider={t('certifications.cert5.provider')}
+                                                title={t('certifications.cert5.title')}
+                                                year={t('certifications.cert5.year')}
+                                            />
+                                            <CertItem
+                                                provider={t('certifications.cert6.provider')}
+                                                title={t('certifications.cert6.title')}
+                                                year={t('certifications.cert6.year')}
+                                            />
                                         </div>
                                     </GlowingSection>
                                 </div>

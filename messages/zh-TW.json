@@ -8,7 +8,14 @@
         "contact": "聯絡"
     },
     "Hero": {
-        "badge": "開放工作機會",
+        "badges": {
+            "software": "軟體開發",
+            "webSystem": "網頁 / 系統設計",
+            "data": "資料科學",
+            "cloud": "雲端架構",
+            "aiMl": "AI / ML",
+            "genAI": "生成式 AI"
+        },
         "greeting": "嗨，我是",
         "nameSuffix": "林",
         "description": "雲端工程師 & AI 解決方案開發者",
@@ -27,7 +34,7 @@
         "degree": "電腦科學與資訊工程碩士",
         "genAI": "生成式 AI 應用",
         "cloudArchitecture": "雲端解決方案架構",
-        "summary2Part1": "透過多代理系統 (Multi-Agent)、RAG 框架及 AWS/GCP 雲端服務，成功交付企業級可擴展 AI 解決方案。具備 BI 導入與 ETL 資料工程實務經驗，擅長以數據驅動業務決策。持有 ",
+        "summary2Part1": "透過多代理系統 (Multi-Agent)、RAG 框架及 AWS/GCP 雲端服務，成功交付企業級可擴展 AI 解決方案。具備 BI 導入與資料視覺化實務經驗，擅長將企業數據轉化為策略性洞察，驅動數據導向決策。持有 ",
         "summary2Part2": "，於多項黑客松及全國性競賽獲得佳績，具備帶領技術團隊與推動數位轉型之實務經驗。",
         "certifications": "NVIDIA、AWS、Google Cloud 等國際認證",
         "highlightedAwards": "Highlighted Awards",
@@ -71,9 +78,9 @@
         "job1Company": "雙餘實業股份有限公司",
         "job1Role": "資料工程師 & 總經理助理（兼職）",
         "job1Period": "2023年9月 - 2024年12月",
-        "job1Desc1": "主導業務與財務部門數位轉型（50+ 使用者），報表製作時間縮短 40%。",
-        "job1Desc2": "開發 10+ 互動式 BI 儀表板（Tableau/Alteryx），提供高階主管決策洞察。",
-        "job1Desc3": "優化 SAP 資料 ETL 流程，團隊協作效率提升 30%。",
+        "job1Desc1": "協助企業 BI 導入專案，主責 Tableau 報表開發與資料視覺化，服務 50+ 使用者。",
+        "job1Desc2": "開發 10+ 互動式報表與儀表板（Tableau/Alteryx），協助業務、財務人員及高階主管掌握數據洞察。",
+        "job1Desc3": "設計總經理及副總專用儀表板，協助掌控數據全貌並挖掘數據價值，效率提升 30%。",
         "job1Desc4": "進行 GenAI & BI 趨勢市場調研，涵蓋 20+ 場科技研討會（AWS Summit 等）。",
         "job2Role": "軟體工程師",
         "job2Period": "2023年1月 - 2023年9月",
@@ -110,7 +117,7 @@
         "name": "林承漢",
         "englishName": "Cheng-Han Lin (Steven)",
         "title": "雲端架構師暨AI解決方案開發者",
-        "summary": "<strong>電腦科學與資訊工程碩士</strong>，研究領域涵蓋資訊安全與影像處理，專精於<highlight>生成式 AI 應用</highlight>與<highlight>雲端解決方案架構</highlight>。透過多代理系統 (Multi-Agent)、RAG 框架及 AWS/GCP 雲端服務，成功交付企業級可擴展 AI 解決方案。具備<highlight>資料工程與 BI 分析</highlight>實務經驗，擅長以 ETL 流程整合企業數據並驅動業務決策。持有 <highlight>NVIDIA、AWS、Google Cloud 等國際認證</highlight>，於多項黑客松及全國性競賽獲得佳績，具備帶領技術團隊與推動數位轉型之實務經驗。",
+        "summary": "<strong>電腦科學與資訊工程碩士</strong>，研究領域涵蓋資訊安全與影像處理，專精於<highlight>生成式 AI 應用</highlight>與<highlight>雲端解決方案架構</highlight>。透過多代理系統 (Multi-Agent)、RAG 框架及 AWS/GCP 雲端服務，成功交付企業級可擴展 AI 解決方案。具備<highlight>BI 導入與資料視覺化</highlight>實務經驗，擅長將企業數據轉化為策略性洞察，驅動數據導向決策。持有 <highlight>NVIDIA、AWS、Google Cloud 等國際認證</highlight>，於多項黑客松及全國性競賽獲得佳績，具備帶領技術團隊與推動數位轉型之實務經驗。",
         "sections": {
             "experience": "專業經歷",
             "education": "學歷",
@@ -129,9 +136,9 @@
                 "company": "雙餘實業股份有限公司",
                 "type": "兼職",
                 "period": "2023/09 – 2024/12",
-                "desc1": "協助企業 BI 導入專案，支援銷售與財務部門 <strong>50+ 使用者</strong>之數位轉型需求",
-                "desc2": "開發 <strong>10+ 互動式報表</strong>（銷售分析、財務報告、高階 KPI），減少報表製作時間達 <strong>40%</strong>",
-                "desc3": "建立跨部門儀表板（銷售至 C-level），<strong>打破資料孤島</strong>，提升整體效率 <strong>30%</strong>",
+                "desc1": "協助企業 BI 導入專案，主責 <strong>Tableau</strong> 報表開發與<strong>資料視覺化</strong>，服務 <strong>50+ 使用者</strong>",
+                "desc2": "開發 <strong>10+ 互動式報表與儀表板</strong>（銷售分析、財務 KPI），協助一般/資深業務及財務人員掌握數據洞察，減少報表製作時間達 <strong>40%</strong>",
+                "desc3": "設計高階主管儀表板（總經理、副總），協助<strong>掌控數據全貌</strong>並<strong>挖掘數據價值</strong>，提升整體效率 <strong>30%</strong>",
                 "desc4": "運用 <strong>Alteryx</strong> 維護 ETL 流程，處理 <strong>SAP</strong> 數據以提供即時商業智慧分析",
                 "desc5": "2024 年出席 <strong>20+ 場技術研討會</strong>（AWS Summit、Google DevFest、COMPUTEX 等）進行趨勢研究"
             },
@@ -216,26 +223,31 @@
         "awards": {
             "competition1": {
                 "badge": "第四名",
+                "org": "勞動部",
                 "title": "第 55 屆全國技能競賽",
                 "desc": "雲端運算職類，2025"
             },
             "competition2": {
                 "badge": "第一名",
+                "org": "勞動部",
                 "title": "第 55 屆分區技能競賽青年組",
                 "desc": "雲端運算職類，2025"
             },
             "competition3": {
                 "badge": "第一名",
+                "org": "DIGITIMES",
                 "title": "雲湧智生｜臺灣生成式 AI 應用黑客松競賽",
                 "desc": "Gogoro 智慧移動組，2024"
             },
             "competition4": {
                 "badge": "第一名",
+                "org": "教育部",
                 "title": "2022 ITSA 全國大專程式設計極客挑戰賽",
                 "desc": "網頁及資訊系統組，2022"
             },
             "competition5": {
                 "badge": "模範生",
+                "org": "台中市政府",
                 "title": "台中市模範生獎",
                 "desc": "優秀學業表現，2023"
             }
@@ -244,7 +256,7 @@
             "cert1": {
                 "provider": "NVIDIA",
                 "title": "Accelerated Data Science - Professional",
-                "year": "2025"
+                "year": "2026"
             },
             "cert2": {
                 "provider": "NVIDIA",

@@ -8,7 +8,14 @@
         "contact": "Contact"
     },
     "Hero": {
-        "badge": "Available for Opportunities",
+        "badges": {
+            "software": "Software",
+            "webSystem": "Web / System",
+            "data": "Data",
+            "cloud": "Cloud",
+            "aiMl": "AI / ML",
+            "genAI": "GenAI"
+        },
         "greeting": "Hi, I'm",
         "nameSuffix": "Lin",
         "description": "Cloud Engineer & AI Solution Developer.",
@@ -27,7 +34,7 @@
         "degree": "M.S. in Computer Science and Information Engineering",
         "genAI": "Generative AI Applications",
         "cloudArchitecture": "Cloud Solution Architecture",
-        "summary2Part1": "Through Multi-Agent systems, RAG frameworks, and AWS/GCP cloud services, I have successfully delivered enterprise-grade scalable AI solutions. Experienced in data engineering and BI analytics, leveraging ETL pipelines to transform enterprise data into actionable insights. With ",
+        "summary2Part1": "Through Multi-Agent systems, RAG frameworks, and AWS/GCP cloud services, I have successfully delivered enterprise-grade scalable AI solutions. Experienced in BI implementation and data visualization, transforming enterprise data into strategic insights to drive informed decision-making. With ",
         "summary2Part2": ", I have achieved excellent results in various hackathons and national competitions, with practical experience in leading technical teams and driving digital transformation.",
         "certifications": "NVIDIA, AWS, Google Cloud international certifications",
         "highlightedAwards": "Highlighted Awards",
@@ -71,9 +78,9 @@
         "job1Company": "BETO ENG. & MKTG., CO., LTD.",
         "job1Role": "Data Engineer & Executive Assistant (Part-time)",
         "job1Period": "Sep 2023 - Dec 2024",
-        "job1Desc1": "Led digital transformation for Sales & Finance depts (50+ users), reducing report prep time by 40%.",
-        "job1Desc2": "Developed 10+ interactive BI dashboards (Tableau/Alteryx) for C-level insights.",
-        "job1Desc3": "Optimized ETL pipelines for SAP data, improving cross-team efficiency by 30%.",
+        "job1Desc1": "Collaborated on enterprise BI implementation, focusing on Tableau reporting and data visualization for 50+ users.",
+        "job1Desc2": "Developed 10+ interactive reports and dashboards (Tableau/Alteryx) for business, finance, and C-level insights.",
+        "job1Desc3": "Designed executive dashboards for GM and VP, enabling data mastery and uncovering business value, improving efficiency by 30%.",
         "job1Desc4": "Conducted market research on GenAI & BI trends from 20+ tech conferences (AWS Summit, etc.).",
         "job2Role": "Software Engineer",
         "job2Period": "Jan 2023 - Sep 2023",
@@ -110,7 +117,7 @@
         "name": "Cheng-Han Lin",
         "englishName": "Cheng-Han Lin (Steven)",
         "title": "Cloud Architect & AI Solution Developer",
-        "summary": "<strong>MS in Computer Science</strong> with research in Information Security and Image Processing. Specializing in <highlight>Generative AI applications</highlight> and <highlight>Cloud solution architecture</highlight>. Successfully delivered enterprise-grade, scalable AI solutions leveraging Multi-Agent Systems, RAG frameworks, and AWS/GCP cloud services. Experienced in <highlight>data engineering and BI analytics</highlight>, building ETL pipelines to transform enterprise data into actionable business insights. Holding <highlight>international certifications from NVIDIA, AWS, and Google Cloud</highlight>, with notable results in multiple hackathons and national competitions. Proven track record in leading technical teams and driving digital transformation.",
+        "summary": "<strong>MS in Computer Science</strong> with research in Information Security and Image Processing. Specializing in <highlight>Generative AI applications</highlight> and <highlight>Cloud solution architecture</highlight>. Successfully delivered enterprise-grade, scalable AI solutions leveraging Multi-Agent Systems, RAG frameworks, and AWS/GCP cloud services. Experienced in <highlight>BI implementation and data visualization</highlight>, transforming enterprise data into strategic insights to drive informed decision-making. Holding <highlight>international certifications from NVIDIA, AWS, and Google Cloud</highlight>, with notable results in multiple hackathons and national competitions. Proven track record in leading technical teams and driving digital transformation.",
         "sections": {
             "experience": "Professional Experience",
             "education": "Education",
@@ -129,9 +136,9 @@
                 "company": "BETO ENG. & MKTG., CO., LTD.",
                 "type": "Part-time",
                 "period": "Sep 2023 – Dec 2024",
-                "desc1": "Led enterprise BI implementation supporting <strong>50+ users</strong> in Sales & Finance digital transformation",
-                "desc2": "Developed <strong>10+ interactive dashboards</strong> (sales analytics, financial reports, executive KPIs), reducing report preparation time by <strong>40%</strong>",
-                "desc3": "Built cross-department dashboards (Sales to C-level), <strong>eliminating data silos</strong> and improving efficiency by <strong>30%</strong>",
+                "desc1": "Collaborated on enterprise BI implementation, focusing on <strong>Tableau</strong> reporting and <strong>data visualization</strong> for <strong>50+ users</strong>",
+                "desc2": "Developed <strong>10+ interactive reports and dashboards</strong> (sales analytics, financial KPIs) for business, finance, GM, and VP, reducing report prep time by <strong>40%</strong>",
+                "desc3": "Designed executive dashboards enabling C-level and senior staff to <strong>master data insights</strong> and <strong>uncover business value</strong>, improving efficiency by <strong>30%</strong>",
                 "desc4": "Maintained ETL pipelines with <strong>Alteryx</strong>, processing <strong>SAP</strong> data for real-time business intelligence",
                 "desc5": "Attended <strong>20+ tech conferences</strong> (AWS Summit, Google DevFest, COMPUTEX) for trend research in 2024"
             },
@@ -140,9 +147,9 @@
                 "company": "BETO ENG. & MKTG., CO., LTD.",
                 "period": "Jan 2023 – Sep 2023",
                 "desc1": "Delivered internal solutions replacing external consulting services, saving over <strong>500K TWD</strong> in development costs",
-                "desc2": "Built attendance analysis platform serving <strong>500+ employees</strong>, reducing HR report generation from 60 minutes to real-time (<strong>saving 6 hours weekly</strong>)",
+                "desc2": "Built attendance analytics for <strong>500+ employees</strong>, cutting HR report time from 60min to instant (<strong>6hr/week saved</strong>)",
                 "desc3": "Developed inventory sync system managing <strong>30+ SKUs</strong> and <strong>20 warehouse staff</strong>, reducing manual workload by <strong>25%</strong>",
-                "desc4": "Implemented containerized microservices with Docker and CI/CD, improving system stability by <strong>40%</strong> and troubleshooting efficiency by <strong>75%</strong>"
+                "desc4": "Containerized microservices with Docker & CI/CD, improving stability <strong>40%</strong> and troubleshooting <strong>75% faster</strong>"
             }
         },
         "education": {
@@ -173,8 +180,8 @@
         },
         "featuredProjects": {
             "gogoro": {
-                "title": "Gogoro Smart Vehicle Customer Service Assistant",
-                "event": "AIWave: 2024 Generative AI Application Hackathon (Gogoro Category)",
+                "title": "Gogoro Smart Scooter Wizard",
+                "event": "AIWave: Taiwan Generative AI Applications Hackathon 2024 (Gogoro)",
                 "award": "🥇 1st Place",
                 "desc1": "Designed <strong>Multi-Agent ReAct</strong> architecture supporting <strong>12 electric vehicle models</strong>",
                 "desc2": "Built RAG system processing <strong>800+ pages</strong> of technical manuals with vector search",
@@ -185,7 +192,7 @@
                 "title": "AI Smart Sales Assistant",
                 "event": "Eastern Media Shopping TV Network",
                 "award": "Finalist",
-                "desc1": "<strong>Three-tier AI Architecture</strong>: Coach → Sales → Evaluation Agent",
+                "desc1": "<strong>3-tier AI</strong>: Coach → Sales → Evaluation Agent",
                 "desc2": "Integrated <strong>100+ customer attributes</strong> for real-time personalized recommendations",
                 "desc3": "AWS Bedrock + Transcribe + Polly <strong>Voice AI</strong> stack",
                 "desc4": "Led <strong>5-person team</strong> to complete prototype and gain business approval"
@@ -216,27 +223,32 @@
         "awards": {
             "competition1": {
                 "badge": "4th Place",
+                "org": "Ministry of Labor",
                 "title": "55th National Skills Competition",
                 "desc": "Cloud Computing Category, 2025"
             },
             "competition2": {
                 "badge": "1st Place",
+                "org": "Ministry of Labor",
                 "title": "55th Regional Skills Competition Youth Division",
                 "desc": "Cloud Computing Category, 2025"
             },
             "competition3": {
                 "badge": "1st Place",
+                "org": "DIGITIMES",
                 "title": "AIWave | Taiwan Generative AI Application Hackathon",
                 "desc": "Gogoro Smart Mobility Category, 2024"
             },
             "competition4": {
                 "badge": "1st Place",
-                "title": "2022 ITSA National Programming Geek Challenge",
-                "desc": "Web & Information Systems Category, 2022"
+                "org": "Ministry of Education",
+                "title": "2022 ITSA Programming Geek Contest",
+                "desc": "Information Systems & Web Application Division, 2022"
             },
             "competition5": {
-                "badge": "Model Student",
-                "title": "Taichung City Model Student Award",
+                "badge": "Merit",
+                "org": "Taichung City Government",
+                "title": "Taichung City Honors Student Award",
                 "desc": "Outstanding Academic Performance, 2023"
             }
         },
@@ -244,7 +256,7 @@
             "cert1": {
                 "provider": "NVIDIA",
                 "title": "Accelerated Data Science - Professional",
-                "year": "2025"
+                "year": "2026"
             },
             "cert2": {
                 "provider": "NVIDIA",
