@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, Variants } from "motion/react";
+import { type Variants } from "motion/react";
+import * as m from "motion/react-m";
 import { cn } from "@/lib/utils";
 
 interface TypewriterProps {
@@ -82,16 +83,16 @@ export function Typewriter({
     };
 
     return (
-        <span className={cn("inline-flex items-center", className)}>
+        <span className={cn("inline", className)}>
             <span>{displayText || "\u200B"}</span>
-            <motion.span
+            <m.span
                 variants={cursorVariants}
                 initial="initial"
                 animate="animate"
                 className={cn("inline-block", cursorClassName)}
             >
                 {cursorChar}
-            </motion.span>
+            </m.span>
         </span>
     );
 }
