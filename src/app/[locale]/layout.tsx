@@ -10,6 +10,11 @@ import { hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 
+const ogLocaleMap: Record<string, string> = {
+    en: "en_US",
+    "zh-TW": "zh_TW",
+};
+
 const geistSans = Geist({
     variable: "--font-geist-sans",
     subsets: ["latin"],
@@ -46,100 +51,128 @@ export const viewport: Viewport = {
     maximumScale: 5,
 };
 
-export const metadata: Metadata = {
-    // Basic Metadata
-    title: {
-        default: siteName,
-        template: "%s | Cheng-Han Lin",
-    },
-    description: siteDescription,
-    keywords: [
-        "Cloud Engineer",
-        "AI Developer",
-        "Generative AI",
-        "AWS",
-        "GCP",
-        "RAG",
-        "Multi-Agent Systems",
-        "LangChain",
-        "Amazon Bedrock",
-        "Portfolio",
-        "BR Lin",
-        "Cheng-Han Lin",
-        "林承漢",
-        "雲端工程師",
-        "AI 解決方案",
-    ],
-    authors: [{ name: "BR Lin (Cheng-Han Lin)", url: siteUrl }],
-    creator: "BR Lin",
-    publisher: "BR Lin",
+/**
+ * Generate locale-aware metadata with proper hreflang alternates.
+ * @see https://developers.google.com/search/docs/specialty/international/localized-versions
+ */
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const { locales, defaultLocale } = routing;
 
-    // Canonical URL
-    metadataBase: new URL(siteUrl),
-    alternates: {
-        canonical: "/",
-    },
+    // Build alternates.languages for hreflang
+    const languages: Record<string, string> = {};
+    for (const loc of locales) {
+        const prefix = loc === defaultLocale ? "" : `/${loc}`;
+        languages[loc] = `${siteUrl}${prefix}`;
+    }
+    languages["x-default"] = siteUrl;
 
-    // Icons
-    icons: {
-        icon: [
-            { url: "/icon.png", sizes: "32x32", type: "image/png" },
+    // Canonical URL for the current locale
+    const canonicalPrefix = locale === defaultLocale ? "" : `/${locale}`;
+
+    return {
+        // Basic Metadata
+        title: {
+            default: siteName,
+            template: "%s | Cheng-Han Lin",
+        },
+        description: siteDescription,
+        keywords: [
+            "Cloud Engineer",
+            "AI Developer",
+            "Generative AI",
+            "AWS",
+            "GCP",
+            "RAG",
+            "Multi-Agent Systems",
+            "LangChain",
+            "Amazon Bedrock",
+            "Portfolio",
+            "BR Lin",
+            "Cheng-Han Lin",
+            "林承漢",
+            "雲端工程師",
+            "AI 解決方案",
         ],
-        apple: [
-            { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
-        ],
-    },
+        authors: [{ name: "BR Lin (Cheng-Han Lin)", url: siteUrl }],
+        creator: "BR Lin",
+        publisher: "BR Lin",
 
-    // Robots
-    robots: {
-        index: true,
-        follow: true,
-        nocache: false,
-        googleBot: {
+        // Canonical URL + hreflang alternates
+        metadataBase: new URL(siteUrl),
+        alternates: {
+            canonical: `${canonicalPrefix}/`,
+            languages,
+        },
+
+        // Icons
+        icons: {
+            icon: [
+                { url: "/icon.png", sizes: "32x32", type: "image/png" },
+            ],
+            apple: [
+                { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+            ],
+        },
+
+        // Robots
+        robots: {
             index: true,
             follow: true,
-            noimageindex: false,
-            "max-video-preview": -1,
-            "max-image-preview": "large",
-            "max-snippet": -1,
+            nocache: false,
+            googleBot: {
+                index: true,
+                follow: true,
+                noimageindex: false,
+                "max-video-preview": -1,
+                "max-image-preview": "large",
+                "max-snippet": -1,
+            },
         },
-    },
 
-    // Open Graph
-    openGraph: {
-        type: "website",
-        locale: "en_US",
-        url: siteUrl,
-        siteName: "Cheng-Han Lin Portfolio",
-        title: siteName,
-        description: siteDescription,
-    },
+        // Open Graph - locale-aware
+        openGraph: {
+            type: "website",
+            locale: ogLocaleMap[locale] ?? "en_US",
+            alternateLocale: locales
+                .filter((l) => l !== locale)
+                .map((l) => ogLocaleMap[l] ?? l),
+            url: `${siteUrl}${canonicalPrefix}`,
+            siteName: "Cheng-Han Lin Portfolio",
+            title: siteName,
+            description: siteDescription,
+        },
 
-    // Twitter Card
-    twitter: {
-        card: "summary_large_image",
-        title: siteName,
-        description: siteDescription,
-        creator: "@brlin_dev",
-    },
+        // Twitter Card
+        twitter: {
+            card: "summary_large_image",
+            title: siteName,
+            description: siteDescription,
+            creator: "@brlin_dev",
+        },
 
-    // Verification (add your verification codes here)
-    verification: {
-        google: "VXc-kXyja_yx5VKcf1wcehAp2hsDW4GZjx6rk9jQAG8",
-    },
+        // Verification
+        verification: {
+            google: "VXc-kXyja_yx5VKcf1wcehAp2hsDW4GZjx6rk9jQAG8",
+        },
 
-    // Category
-    category: "technology",
+        // Category
+        category: "technology",
 
-    // Other
-    applicationName: "BR Lin Portfolio",
-    referrer: "origin-when-cross-origin",
-    formatDetection: {
-        email: false,
-        address: false,
-        telephone: false,
-    },
-};
+        // Other
+        applicationName: "BR Lin Portfolio",
+        referrer: "origin-when-cross-origin",
+        formatDetection: {
+            email: false,
+            address: false,
+            telephone: false,
+        },
+    };
+}
 
 // Generate static params for all locales
 export function generateStaticParams() {
